@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<body onload="main()">
+<head>
+  <link rel="stylesheet" href="Vista/style.css">
+</head>
+<!-- Llamada al script para reproducir audio -->
+<script src="Controladora/audio.js"></script>
+<body onload="main()">
+<script src="Controladora/WebGL.js"> </script>
+<h1 style="color:white;">Proyecto: Motor Grafico M.C.G.A </h1>
+<canvas id="WebGL" width="640" height="480"></canvas>
+<script src="Resources/Geometria/geometria.js"> </script>
+<script src="Controladora/shaders.js"> </script>
+<script src="Resources/Geometria/teapot-streams.js"> </script>
+<script src="Resources/Shaders/vertexshader.js"> </script>
+<script src="Resources/Shaders/fragmentshader.js"> </script>
+<script src="Controladora/Modelo.js"> </script>
+<script src="Controladora/Cubemap.js"> </script>
+<script src="Controladora/Textura.js"> </script>
+<script src="Controladora/Matematicas.js"> </script>
+<div id=arrows>
+<br><br>
+<div style="text-align:center;"><div>
+<a href="#" class="btn" onclick="play('plop','mp3');  showEnvMap();" >	&#8855; Mostrar reflejos</a><!-- flecha arriba -->
+ </div>
+ <br>
+<div>
+<a href="#" class="btn" onclick="play('plop','mp3'); showNormalMapping();">	&#8855; Normal mapping </a> <!-- flecha izquierda -->
+</div>
+ <br>
+<input type="range" id="Range" value="50.0" onclick="draw()" min="0.0" max="100.0">
+</div>
+</div>
+</div>
+
+<div id='audiolist'>
+<!-- Agregar todos los audios por acá (solo en caso de ser necesario, si no preferible mandar 2do parametro en botón) -->
+<!-- Audios \|/ -->
+  <audio id="audiocheck" preload=auto>
+    <source src="Resources/Audio/audiocheck.wav" type="audio/wav">
+  Your browser does not support the audio element.
+  </audio>
+
+  <audio id="spring" preload=auto>
+    <source src="Resources/Audio/Spring.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+  </audio>
+<!-- Audios /|\ -->
+</div>
+
+</body>
+</html>
