@@ -15,6 +15,11 @@ var matrix = new Float32Array(16);
 var direccion = new Array(3);
 var arriba = new Array(3);
 var Model;
+var renderer;
+
+	var then = 0;
+	var yrot, xrot, zrot;
+	var rot = 0.0;
 (function(){main();});
 
 function main()
@@ -42,64 +47,13 @@ function main()
 	}
 	GL = WebGL.getContext("experimental-webgl");
 
-	shader = new Shader();
-	shader.initShaders(fragment, vertex);
 	//VBO = cargarModelo();
-
-	cubemap = loacubemap();
-	texture = loadTexture("Resources/Texturas/box2.jpg");
-	texture2 = loadTexture("Resources/Texturas/box3.jpg");
-	texture3 = loadTexture("Resources/Texturas/box4.jpg");
+	renderer = new Renderer;
 	prepararMatrices();
 
-	Model = new Modelo();
-	Model.cargarModelo(Positions, Normals, TexCoords, Binormals, Tangents, Indices);
-
-	requestAnimationFrame(draw);
-	var then = 0;
-	var yrot, xrot, zrot;
-	var rot = 0.0;
+	requestAnimationFrame(Render);
 	
-	function draw(now)
-	{
-		camPos = document.getElementById("Range");
-		now *= 0.001;
-		deltaTime = now - then;
-		then = now;
-
-		GL.useProgram(shader.m_Program);
-		GL.viewport(0,0,WebGL.width, WebGL.height);
-		GL.enable(GL.DEPTH_TEST);
-    	GL.uniformMatrix4fv(GL.getUniformLocation(shader.m_Program, "matrix"), GL.FALSE,matrix);
-		var model = new Float32Array(16);
-		model = Identity();
-		console.log(camPos);
-		rot += deltaTime;
-		yrot = makeYRotation((rotSpeed) * rot);
-		xrot = makeXRotation(degToRad(270));
-		zrot = makeZRotation((rotSpeed) * rot);
-		var translation = makeTranslation(-camPos.value+50, -camPos.value+50, -camPos.value+50);
-		model = matrixMultiply(model, xrot);
-		model = matrixMultiply(model, yrot);
-		//model = matrixMultiply(model, zrot);
-		model = matrixMultiply(model, translation);
-		GL.uniformMatrix4fv(GL.getUniformLocation(shader.m_Program, "model"), GL.FALSE,model);
-		var transInvModel = model;
-		transInvModel = makeInverse(transInvModel);
-		transInvModel = transpose(transInvModel);
-		GL.uniformMatrix4fv(GL.getUniformLocation(shader.m_Program, "transInvModel"), GL.FALSE,transInvModel);
-		GL.uniform3f(GL.getUniformLocation(shader.m_Program, "viewPos"),posicion[0], posicion[1],posicion[2]);
-		GL.uniform3f(GL.getUniformLocation(shader.m_Program, "viewDir"),direccion[0], direccion[1],direccion[2]);
-		GL.uniform1i(GL.getUniformLocation(shader.m_Program, "envmap"),envmap);
-		GL.uniform1i(GL.getUniformLocation(shader.m_Program, "normalmapping"),normalmapping);
-		GL.viewport(0,0,GL.drawingBufferWidth, GL.drawingBufferHeight);
-		GL.clearColor(0, 0, 0, 1.0);
-		GL.clear(GL.COLOR_BUFFER_BIT | GL.DEPTH_BUFFER_BIT);
-
-		Model.Render(shader.m_Program, cubemap, texture, texture2, texture3);
-
-		window.requestAnimationFrame(draw);
-}
+	
 
 }
 function updatePosition()

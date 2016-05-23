@@ -3,6 +3,11 @@ function Shader()
     this.m_Program;
 }
 
+Shader.prototype.getshaderID = function()
+{
+    return this.m_Program;
+}
+
 Shader.prototype.loadShader = function(type, shaderSrc) {
 
     var shader = GL.createShader(type);
