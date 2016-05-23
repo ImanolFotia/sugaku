@@ -267,3 +267,23 @@ return [a[0], a[4], a[8], a[12],
 	a[3], a[7], a[11], a[15]];
 
 }
+
+function prepararMatrices()
+{
+  model = Identity();
+  view = Identity();
+  projection = Identity();
+
+  direccion = [0.0, 20.0, 0.0];
+  posicion = [70.0, 80.0, 70.0];
+  var cameraMatrix = Identity();
+  //cameraMatrix = makeTranslation(posicion[0], posicion[1], posicion[2]);
+  var yrot = makeYRotation(degToRad(0));
+  cameraMatrix = makeLookAt(posicion, direccion, [0,1,0]);//matrixMultiply(cameraMatrix, yrot);
+  var invView = makeInverse(cameraMatrix);
+  var projection = makePerspective(degToRad(45), GL.drawingBufferWidth / GL.drawingBufferHeight, 0.1, 2000);
+  matrix = makeTranslation(0, 0, 0);//makeLookAt([1, 1, 1], posicion, [0,1,0]);
+  matrix = matrixMultiply(matrix, invView);
+    matrix = matrixMultiply(matrix, projection);
+
+}

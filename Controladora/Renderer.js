@@ -24,7 +24,7 @@ function Render(now)
 		then = now;
 
 		GL.useProgram(renderer.m_Shader.getshaderID());
-		GL.viewport(0,0,WebGL.width, WebGL.height);
+		GL.viewport(0,0,Canvas.width, Canvas.height);
 		GL.enable(GL.DEPTH_TEST);
     	GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "matrix"), GL.FALSE,matrix);
 		var model = new Float32Array(16);
