@@ -28,17 +28,31 @@ function Render(now)
 		GL.enable(GL.DEPTH_TEST);
     	GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "matrix"), GL.FALSE,matrix);
 		var model = new Float32Array(16);
+		var view = new Float32Array(16);
+		var perspective = new Float32Array(16);
+
+		var position = new Float32Array([0, -50, camPos.value-100]);
+		var direction = new Float32Array([0,0,0]);
+		var up = new Float32Array([0,1,0]);
 		model = Identity();
+		view = Identity();
+		perspective = Identity();
+
+		view = makeLookAt(position, direction, up);
+		perspective = makePerspective(degToRad(90), 4.0/3.0, 0.1, 1000.0);
+
 		rot += deltaTime;
 		yrot = makeYRotation((rotSpeed) * rot);
 		xrot = makeXRotation(degToRad(270));
 		zrot = makeZRotation((rotSpeed) * rot);
-		var translation = makeTranslation(-camPos.value+50, -camPos.value+50, -camPos.value+50);
+		var translation = makeTranslation(0, 0, 0);
 		model = matrixMultiply(model, xrot);
 		model = matrixMultiply(model, yrot);
 		//model = matrixMultiply(model, zrot);
 		model = matrixMultiply(model, translation);
 		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "model"), GL.FALSE,model);
+		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "view"), GL.FALSE,view);
+		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "perspective"), GL.FALSE,perspective);
 		var transInvModel = model;
 		transInvModel = makeInverse(transInvModel);
 		transInvModel = transpose(transInvModel);
