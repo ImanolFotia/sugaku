@@ -1,0 +1,209 @@
+#store
+{
+background:    #044e91;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+position: absolute;
+top:63.5%;
+left: 27.5%;
+z-index: 2;
+}
+
+#controlup
+{
+background:    #044e91;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+position: absolute;
+top:59%;
+left: 63.5%;
+z-index: 2;
+}
+
+#controlleft
+{
+background:    #044e91;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+position: absolute;
+top:63.5%;
+left: 59%;
+z-index: 2;
+}
+
+#controlright
+{
+background:    #044e91;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+position: absolute;
+top:63.5%;
+left: 68%;
+z-index: 2;
+}
+
+#controldown
+{
+background:    #044e91;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+position: absolute;
+top:68%;
+left: 63.5%;
+z-index: 2;
+}
+
+#store:hover
+{
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+position: absolute;
+top:63.5%;
+left: 27.5%;
+z-index: 2;
+}
+
+#controlup:hover
+{
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+position: absolute;
+top:59%;
+left: 63.5%;
+z-index: 2;
+}
+
+#controlleft:hover
+{
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+position: absolute;
+top:63.5%;
+left: 59%;
+z-index: 2;
+}
+
+#controlright:hover
+{
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+position: absolute;
+top:63.5%;
+left: 68%;
+z-index: 2;
+}
+
+#controldown:hover
+{
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+position: absolute;
+top:68%;
+left: 63.5%;
+z-index: 2;
+}

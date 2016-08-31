@@ -1,7 +1,7 @@
 function play(id, format)//le paso el id a través del botón
 {
   if(format != null && format == "mp3" || format == "wav"){
-      var audio = new Audio("Resources/"+id+"."+format)
+      var audio = new Audio("Resources/Audio/"+id+"."+format)
       audio.play();
     }
     else {

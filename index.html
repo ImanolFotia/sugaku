@@ -5,6 +5,7 @@
 		<!-- VISTA -->
   		<link rel="stylesheet" href="Vista/style.css">
   		<link rel="stylesheet" href="Vista/canvas.css">
+  		<link rel="stylesheet" type="text/css" href="Vista/controls.css">
 		</head>
 		<h1 style="color:white;">Proyecto: SAP/TFI </h1>
 		<div id="Container">
@@ -41,19 +42,26 @@
 			<!-- Canvas -->
 			<script src="Vista/Resize.js"> </script>
 			<canvas id="WebGL" width="1024" height="768"></canvas>
+			<!-- Controles -->			
+			<button id="controlup" type="button">^</button>
+			<button id="controlleft" type="button"><</button>
+			<button id="controlright" type="button">></button>
+			<button id="controldown" type="button">v</button>
+			<button id="store" type="button">&#128722</button>
 			<!-- Modelos -->
 			<script src="Resources/Geometria/teapot-streams.js"> </script>
 			<!-- Shaders -->
 			<script src="Resources/Shaders/vertexshader.js"> </script>
 			<script src="Resources/Shaders/fragmentshader.js"> </script>
+			<!-- Control de gráficos -->			
 			<div id=arrows>
 				<br>
 				<div style="text-align:center;">
-					<a href="#" class="btn" onclick="play('plop','mp3');  showEnvMap();" >	&#8855; Mostrar reflejos</a><!-- flecha arriba -->
+					<a href="#" class="btn" onclick="play('plop','mp3');  showEnvMap();" >	&#8855; Mostrar reflejos</a>
 	 			</div>
 	 			<br>
 				<div>
-					<a href="#" class="btn" onclick="play('plop','mp3'); showNormalMapping();">	&#8855; Normal mapping </a> <!-- flecha izquierda -->
+					<a href="#" class="btn" onclick="play('plop','mp3'); showNormalMapping();">	&#8855; Normal mapping </a> 
 				</div>
 	 			<br>
 	 			<div>
