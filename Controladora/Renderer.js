@@ -31,21 +31,21 @@ function Render(now)
 		var view = new Float32Array(16);
 		var perspective = new Float32Array(16);
 
-		var position = new Float32Array([0, -50, camPos.value-100]);
-		var direction = new Float32Array([0,0,0]);
+		var position = new Float32Array([0, 0.0, camPos.value]);
+		var direction = new Float32Array([0,0,-1]);
 		var up = new Float32Array([0,1,0]);
 		model = Identity();
 		view = Identity();
 		perspective = Identity();
 
-		view = makeLookAt(position, direction, up);
+		view = makeLookAt(position, sumVectors(direction, position), up);
 		perspective = makePerspective(degToRad(90), 4.0/3.0, 0.1, 1000.0);
 
 		rot += deltaTime;
 		yrot = makeYRotation((rotSpeed) * rot);
 		xrot = makeXRotation(degToRad(270));
 		zrot = makeZRotation((rotSpeed) * rot);
-		var translation = makeTranslation(0, 0, 0);
+		var translation = makeTranslation(0, -20, -100);
 		model = matrixMultiply(model, xrot);
 		model = matrixMultiply(model, yrot);
 		//model = matrixMultiply(model, zrot);
