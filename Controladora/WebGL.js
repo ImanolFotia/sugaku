@@ -7,7 +7,9 @@ function main()
 	Canvas = obtenerDatosDeCanvas();
 	
 	renderer = new Renderer;
-
+	
+	InicializarSistemaAudio();
+	
 	requestAnimationFrame(Render);
 }
 

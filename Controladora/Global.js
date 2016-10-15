@@ -20,3 +20,5 @@ var Canvas;
 var then = 0;
 var yrot, xrot, zrot;
 var rot = 0.0;
+var plop = new Sound();
+var spring = new Sound();
