@@ -1,10 +1,40 @@
-function play(id, format)//le paso el id a través del botón
+function InicializarSistemaAudio()
 {
-  if(format != null && format == "mp3" || format == "wav"){
-      var audio = new Audio("Resources/Audio/"+id+"."+format)
-      audio.play();
-    }
-    else {
-    document.getElementById(id).play();//reproduce el sonido con el id que pasó el botón
-  }
+	plop.Init(1, "plop", "mp3", false, 1, 1);
+	spring.Init(2, "Spring", "mp3", false, 1, 1);
+}
+
+function Sound()
+{
+	this.id;
+	this.name;
+	this.format;
+	this.loop;
+	this.velocity;
+	this.volume;
+	this.audio;
+}
+
+Sound.prototype.Init = function(id, name, format, loop, velocity, volume)
+{
+	this.id = id; //int
+	this.name = name; //name of the file
+	this.format = format; //file extension
+	this.loop = loop; //boolean
+	this.velocity = velocity; //decimal, -bwd, +fwd, default:1
+	this.volume = volume; //number range from 0 to 1
+	this.audio = new Audio("Resources/Audio/"+this.name+"."+this.format);
+	this.audio.loop = this.loop;
+	this.audio.playbackRate = this.velocity;
+	this.audio.volume = this.volume;
+}
+
+Sound.prototype.Play = function()
+{
+    this.audio.play();
+}
+
+Sound.prototype.Pause = function()
+{
+	this.audio.pause();
 }

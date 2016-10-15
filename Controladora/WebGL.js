@@ -9,7 +9,9 @@ function main()
 	renderer = new Renderer;
 	
 	prepararMatrices();
-
+	
+	InicializarSistemaAudio();
+	
 	requestAnimationFrame(Render);
 }
 
