@@ -39,18 +39,19 @@
 			<script src="Controladora/Renderer.js"> </script>
 			<script src="Controladora/Global.js"> </script>
 			<script src="Controladora/Helpers.js"> </script>
+			<script src="Controladora/Camara.js"> </script>
 			<!-- VISTA -->
 			<!-- Canvas -->
 			<script src="Vista/Resize.js"> </script>
-			<canvas id="WebGL" width="1024" height="768"></canvas>
+			<canvas id="WebGL" width="1920" height="1080"></canvas>
 			<!-- Controles -->			
-			<button id="controlup" type="button">^</button>
-			<button id="controlleft" type="button"><</button>
-			<button id="controlright" type="button">></button>
-			<button id="controldown" type="button">v</button>
+			<button id="controlup" type="button" onclick="play('plop','mp3'); renderer.m_Camara.MoverAdelante();">^</button>
+			<button id="controlleft" type="button" onclick="play('plop','mp3');renderer.m_Camara.GirarIzquierda();"><</button>
+			<button id="controlright" type="button" onclick="play('plop','mp3');renderer.m_Camara.GirarDerecha();">></button>
+			<button id="controldown" type="button" onclick="play('plop','mp3');renderer.m_Camara.MoverAtras();">v</button>
 			<i id="store" class="fa fa-shopping-cart fa-inverse fa-3x"></i>
 			<!-- Modelos -->
-			<script src="Resources/Geometria/teapot-streams.js"> </script>
+			<script src="Resources/Geometria/escena.js"> </script>
 			<!-- Shaders -->
 			<script src="Resources/Shaders/vertexshader.js"> </script>
 			<script src="Resources/Shaders/fragmentshader.js"> </script>
@@ -66,7 +67,7 @@
 				</div>
 	 			<br>
 	 			<div>
-					<input type="range" id="Range" value="0.0" onclick="draw()" min="0.0" max="100.0">
+					<input type="range" id="Range" value="0.0" onclick="draw()" min="-100.0" max="100.0">
 				</div>
 			</div>
 		</div>

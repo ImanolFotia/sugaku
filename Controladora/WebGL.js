@@ -7,8 +7,6 @@ function main()
 	Canvas = obtenerDatosDeCanvas();
 	
 	renderer = new Renderer;
-	
-	prepararMatrices();
 
 	requestAnimationFrame(Render);
 }

@@ -46,3 +46,34 @@ function showNormalMapping()
 {
 	normalmapping = !normalmapping;
 }
+
+var keyboard =
+{
+	pressed : null,
+	released : null,
+	press : function (evt) 
+	{
+		keyboard.pressed = evt.code;
+		console.log(evt.code);
+	},
+	release : function (evt) 
+	{
+		keyboard.pressed = null;
+		keyboard.released = evt.code;
+	}
+}
+
+var mouse =
+{
+	x : null,
+	y : null,
+	move : function (evt) 
+	{
+		mouse.x = evt.screenX;
+		mouse.y = evt.screenY;
+		//console.log(evt.screenX);
+	}
+}
+
+
+

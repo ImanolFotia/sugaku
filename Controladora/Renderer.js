@@ -14,6 +14,9 @@ function Renderer() {
 
 		this.m_Model = new Modelo();
 		this.m_Model.cargarModelo(Positions, Normals, TexCoords, Binormals, Tangents, Indices);
+
+		this.m_Camara = new Camara();
+		this.m_Camara.Init([0,0,0], [0,0,-1], 75, 16/9);
 };
 
 function Render(now)
@@ -26,39 +29,32 @@ function Render(now)
 		GL.useProgram(renderer.m_Shader.getshaderID());
 		GL.viewport(0,0,Canvas.width, Canvas.height);
 		GL.enable(GL.DEPTH_TEST);
-    	GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "matrix"), GL.FALSE,matrix);
 		var model = new Float32Array(16);
-		var view = new Float32Array(16);
-		var perspective = new Float32Array(16);
 
-		var position = new Float32Array([0, 0.0, camPos.value]);
-		var direction = new Float32Array([0,0,-1]);
-		var up = new Float32Array([0,1,0]);
+		renderer.m_Camara.PollEvents();
+		renderer.m_Camara.Update();
 		model = Identity();
-		view = Identity();
-		perspective = Identity();
-
-		view = makeLookAt(position, sumVectors(direction, position), up);
-		perspective = makePerspective(degToRad(90), 4.0/3.0, 0.1, 1000.0);
 
 		rot += deltaTime;
 		yrot = makeYRotation((rotSpeed) * rot);
-		xrot = makeXRotation(degToRad(270));
-		zrot = makeZRotation((rotSpeed) * rot);
-		var translation = makeTranslation(0, -20, -100);
-		model = matrixMultiply(model, xrot);
-		model = matrixMultiply(model, yrot);
-		//model = matrixMultiply(model, zrot);
+		xrot = makeXRotation(degToRad(90));
+		zrot = makeZRotation(degToRad(0.0));
+		var translation = makeTranslation(0, 0, 0);
+		var escala = scale(1,1,1);
+		//model = matrixMultiply(model, xrot);
+		//model = matrixMultiply(model, yrot);
+		model = matrixMultiply(model, zrot);
+		model = matrixMultiply(model, escala);
 		model = matrixMultiply(model, translation);
 		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "model"), GL.FALSE,model);
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "view"), GL.FALSE,view);
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "perspective"), GL.FALSE,perspective);
+		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "view"), GL.FALSE,renderer.m_Camara.getViewMatrix());
+		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "perspective"), GL.FALSE,renderer.m_Camara.getPerspectiveMatrix());
 		var transInvModel = model;
 		transInvModel = makeInverse(transInvModel);
 		transInvModel = transpose(transInvModel);
 		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "transInvModel"), GL.FALSE,transInvModel);
-		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewPos"),posicion[0], posicion[1],posicion[2]);
-		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewDir"),direccion[0], direccion[1],direccion[2]);
+		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewPos"),renderer.m_Camara.getPosicion()[0], renderer.m_Camara.getPosicion()[1],renderer.m_Camara.getPosicion()[2]);
+		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewDir"),renderer.m_Camara.getObjetive()[0], renderer.m_Camara.getObjetive()[1],renderer.m_Camara.getObjetive()[2]);
 		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "envmap"),envmap);
 		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "normalmapping"),normalmapping);
 		GL.viewport(0,0,GL.drawingBufferWidth, GL.drawingBufferHeight);

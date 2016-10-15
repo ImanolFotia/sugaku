@@ -19,11 +19,6 @@ function makeTranslation(tx, ty, tz)
   ];
 }
 
-function addVector3(a, b)
-{
-  return [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
-}
-
 function makeYRotation(angleInRadians) 
 {
   var c = Math.cos(angleInRadians);
@@ -57,6 +52,15 @@ function makeZRotation(angleInRadians)
      0, 0, 0, 1
   ];
 }
+
+function scale(x, y, z) {
+  
+  return [x, 0, 0, 0,
+          0, y, 0, 0,
+          0, 0, z, 0,
+          0, 0, 0, 1];
+};
+
 function normalizar(v) 
 {
   var length = Math.sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
@@ -80,6 +84,13 @@ function cross(a, b)
           a[0] * b[1] - a[1] * b[0]];
 }
 
+function VectorIsEqual(v0, v1)
+{
+  if(v0[0] == v1[0] && v0[1] == v1[1] && v0[2] == v1[2])
+    return true;
+
+  return false;
+}
 
 function Identity()
 {
@@ -100,6 +111,47 @@ function dot(vec1, vec2)
 return (vec1[0]*vec2[0] + vec1[1]*vec2[1] + vec1[2]*vec2[2])
 }
 
+function length(v)
+{    
+
+    length = Math.sqrt((v[0] * v[0]) + ( v[1] * v[1] ) + ( v[2] * v[2] ));
+
+    if(length < 0)
+        length *= -1;
+
+    return length;
+}
+
+function lerp(v0, v1, t)
+{
+    var m0 = (1.0-t)*v0[0] + t*v1[0];
+    var m1 = (1.0-t)*v0[1] + t*v1[1];
+    var m2 = (1.0-t)*v0[2] + t*v1[2];
+
+    return [m0, m1, m2];
+}
+
+function slerp(v0, v1, t)
+{   
+  if (t == 0) return v0;
+  if (VectorIsEqual(v0, v1) || t == 1.0) return v1;
+
+  var theta = Math.acos(dot(v0, v1)/(Length(v0) * Length(v1)));
+
+  if (theta == 0) return v1;
+
+  var sinTheta = Math.sin(theta);
+
+  var resA0 = (v0[0] * (Math.sin((1 - t) * theta) / sinTheta));
+  var resA1 = (v0[1] * (Math.sin((1 - t) * theta) / sinTheta));
+  var resA2 = (v0[2] * (Math.sin((1 - t) * theta) / sinTheta));
+
+  var resB0 = (v1[0] * (Math.sin(t * theta) / sinTheta));
+  var resB1 = (v1[1] * (Math.sin(t * theta) / sinTheta));
+  var resB2 = (v1[2] * (Math.sin(t * theta) / sinTheta));
+
+  return sumVectors([resA0, resA1, resA2], [resB0, resB1, resB2]);
+}
 
 function makePerspective(fieldOfViewInRadians, aspect, near, far) 
 {
@@ -118,14 +170,14 @@ function makeLookAt(cameraPosition, target, up)
   var zAxis = normalizar(subtractVectors(cameraPosition, target));
   var xAxis = cross(up, zAxis);
   var yAxis = cross(zAxis, xAxis);
-  return [
+  return makeInverse([
      xAxis[0], xAxis[1], xAxis[2], 0,
      yAxis[0], yAxis[1], yAxis[2], 0,
      zAxis[0], zAxis[1], zAxis[2], 0,
      cameraPosition[0],
      cameraPosition[1],
      cameraPosition[2],
-     1];
+     1]);
 }
 
 

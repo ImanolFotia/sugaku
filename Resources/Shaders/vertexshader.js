@@ -8,7 +8,6 @@
 	"varying vec3 FragPos;",
 	"varying vec3 cubeuv;",
 	"varying vec3 Normal, T, B, N; ",
-	"uniform mat4 matrix; ",
 	"uniform mat4 model; ",
 	"uniform mat4 view; ",
 	"uniform mat4 perspective; ",
