@@ -40,15 +40,16 @@
 			<script src="Controladora/Global.js"> </script>
 			<script src="Controladora/Helpers.js"> </script>
 			<script src="Controladora/Camara.js"> </script>
+			<script src="Controladora/audio.js"> </script>
 			<!-- VISTA -->
 			<!-- Canvas -->
 			<script src="Vista/Resize.js"> </script>
 			<canvas id="WebGL" width="1920" height="1080"></canvas>
 			<!-- Controles -->			
-			<button id="controlup" type="button" onclick="play('plop','mp3'); renderer.m_Camara.MoverAdelante();">^</button>
-			<button id="controlleft" type="button" onclick="play('plop','mp3');renderer.m_Camara.GirarIzquierda();"><</button>
-			<button id="controlright" type="button" onclick="play('plop','mp3');renderer.m_Camara.GirarDerecha();">></button>
-			<button id="controldown" type="button" onclick="play('plop','mp3');renderer.m_Camara.MoverAtras();">v</button>
+			<button id="controlup" type="button" onclick="plop.Play(); renderer.m_Camara.MoverAdelante();">^</button>
+			<button id="controlleft" type="button" onclick="plop.Play();renderer.m_Camara.GirarIzquierda();"><</button>
+			<button id="controlright" type="button" onclick="plop.Play();renderer.m_Camara.GirarDerecha();">></button>
+			<button id="controldown" type="button" onclick="plop.Play();renderer.m_Camara.MoverAtras();">v</button>
 			<i id="store" class="fa fa-shopping-cart fa-inverse fa-3x"></i>
 			<!-- Modelos -->
 			<script src="Resources/Geometria/escena.js"> </script>
@@ -59,11 +60,11 @@
 			<div id=arrows>
 				<br>
 				<div style="text-align:center;">
-					<a href="#" class="btn" onclick="play('plop','mp3');  showEnvMap();" >	&#8855; Mostrar reflejos</a>
+					<a href="#" class="btn" onclick="plop.Play();  showEnvMap();" >	&#8855; Mostrar reflejos</a>
 	 			</div>
 	 			<br>
 				<div>
-					<a href="#" class="btn" onclick="play('plop','mp3'); showNormalMapping();">	&#8855; Normal mapping </a> 
+					<a href="#" class="btn" onclick="plop.Play(); showNormalMapping();">	&#8855; Normal mapping </a> 
 				</div>
 	 			<br>
 	 			<div>

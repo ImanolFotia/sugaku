@@ -155,9 +155,9 @@ Camara.prototype.Update = function()
 	this.m_ViewMatrix = makeLookAt(this.m_Posicion, objetivo, this.m_Up);
 
 	this.m_PerspectiveMatrix = makePerspective(this.m_FoV, this.m_Aspecto, 0.1, 1000.0);
-
+/*
 	console.log("Posicion " + "x: " + this.m_Posicion[0] + " y: " + this.m_Posicion[1] + " z: "  + this.m_Posicion[2]);
-	console.log("Direccion " + "x: " + this.m_Direccion[0] + " y: " + this.m_Direccion[1] + " z: "  + this.m_Direccion[2]);
+	console.log("Direccion " + "x: " + this.m_Direccion[0] + " y: " + this.m_Direccion[1] + " z: "  + this.m_Direccion[2]);*/
 }
 
 /** Getters*/

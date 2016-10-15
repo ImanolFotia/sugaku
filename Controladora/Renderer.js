@@ -40,7 +40,7 @@ function Render(now)
 		xrot = makeXRotation(degToRad(90));
 		zrot = makeZRotation(degToRad(0.0));
 		var translation = makeTranslation(0, 0, 0);
-		var escala = scale(1,1,1);
+		var escala = scale(10,5,10);
 		//model = matrixMultiply(model, xrot);
 		//model = matrixMultiply(model, yrot);
 		model = matrixMultiply(model, zrot);
