@@ -102,7 +102,7 @@ function Identity()
 
 function degToRad(d) 
 {
-    return d * Math.PI / 180;
+    return d * Math.PI / 180.0;
 }
 
 
@@ -114,7 +114,7 @@ return (vec1[0]*vec2[0] + vec1[1]*vec2[1] + vec1[2]*vec2[2])
 function length(v)
 {    
 
-    length = Math.sqrt((v[0] * v[0]) + ( v[1] * v[1] ) + ( v[2] * v[2] ));
+    var length = Math.sqrt((v[0] * v[0]) + ( v[1] * v[1] ) + ( v[2] * v[2] ));
 
     if(length < 0)
         length *= -1;
@@ -136,7 +136,7 @@ function slerp(v0, v1, t)
   if (t == 0) return v0;
   if (VectorIsEqual(v0, v1) || t == 1.0) return v1;
 
-  var theta = Math.acos(dot(v0, v1)/(Length(v0) * Length(v1)));
+  var theta = Math.acos(dot(v0, v1)/(length(v0) * length(v1)));
 
   if (theta == 0) return v1;
 

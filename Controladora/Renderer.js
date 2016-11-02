@@ -16,7 +16,7 @@ function Renderer() {
 		this.m_Model.cargarModelo(Positions, Normals, TexCoords, Binormals, Tangents, Indices);
 
 		this.m_Camara = new Camara();
-		this.m_Camara.Init([130,20,0], [0,0,-1], 75, 16/9);
+		this.m_Camara.Init([130,20,0], [0,0,1], 75, 16/9);
 };
 
 function Render(now)
@@ -34,7 +34,7 @@ function Render(now)
 		renderer.m_Camara.PollEvents();
 		renderer.m_Camara.Update();
 
-		console.log("X: " + renderer.m_Camara.m_Posicion[0] + " Z: " + renderer.m_Camara.m_Posicion[2]);
+		//console.log("X: " + renderer.m_Camara.m_Posicion[0] + " Z: " + renderer.m_Camara.m_Posicion[2]);
 
 		model = Identity();
 
