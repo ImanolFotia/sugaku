@@ -51,9 +51,9 @@ Camara.prototype.MoverAdelante = function()
 		var obj = normalizar(this.m_Direccion);
 
 
-	this.m_Posicion[0] += obj[0] * 2.0; 
-	this.m_Posicion[1] += obj[1] * 2.0; 
-	this.m_Posicion[2] += obj[2] * 2.0; 
+	this.m_Posicion[0] += obj[0] * 0.2; 
+	this.m_Posicion[1] += obj[1] * 0.2; 
+	this.m_Posicion[2] += obj[2] * 0.2; 
 }
 
 
@@ -61,26 +61,26 @@ Camara.prototype.MoverDerecha = function()
 {
 	var obj = normalizar(this.m_Derecha);
 
-	this.m_Posicion[0] -= obj[0] * 2.0;
-	this.m_Posicion[1] -= obj[1] * 2.0;
-	this.m_Posicion[2] -= obj[2] * 2.0;
+	this.m_Posicion[0] -= obj[0] * 0.2;
+	this.m_Posicion[1] -= obj[1] * 0.2;
+	this.m_Posicion[2] -= obj[2] * 0.2;
 }
 
 Camara.prototype.MoverIzquierda = function()
 {	
 	var obj = normalizar(this.m_Derecha);
 
-	this.m_Posicion[0] += obj[0] * 2.0;
-	this.m_Posicion[1] += obj[1] * 2.0;
-	this.m_Posicion[2] += obj[2] * 2.0;
+	this.m_Posicion[0] += obj[0] * 0.2;
+	this.m_Posicion[1] += obj[1] * 0.2;
+	this.m_Posicion[2] += obj[2] * 0.2;
 }
 
 Camara.prototype.MoverAtras = function()
 {
 	var obj = normalizar(this.m_Direccion);
-	this.m_Posicion[0] -= obj[0] * 2.0;
-	this.m_Posicion[1] -= obj[1] * 2.0;
-	this.m_Posicion[2] -= obj[2] * 2.0;
+	this.m_Posicion[0] -= obj[0] * 0.2;
+	this.m_Posicion[1] -= obj[1] * 0.2;
+	this.m_Posicion[2] -= obj[2] * 0.2;
 }
 
 Camara.prototype.ComputarDireccion = function()

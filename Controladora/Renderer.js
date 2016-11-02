@@ -16,7 +16,7 @@ function Renderer() {
 		this.m_Model.cargarModelo(Positions, Normals, TexCoords, Binormals, Tangents, Indices);
 
 		this.m_Camara = new Camara();
-		this.m_Camara.Init([0,0,0], [0,0,-1], 75, 16/9);
+		this.m_Camara.Init([130,20,0], [0,0,-1], 75, 16/9);
 };
 
 function Render(now)
@@ -33,25 +33,32 @@ function Render(now)
 
 		renderer.m_Camara.PollEvents();
 		renderer.m_Camara.Update();
+
+		console.log("X: " + renderer.m_Camara.m_Posicion[0] + " Z: " + renderer.m_Camara.m_Posicion[2]);
+
 		model = Identity();
 
 		rot += deltaTime;
 		yrot = makeYRotation((rotSpeed) * rot);
 		xrot = makeXRotation(degToRad(90));
 		zrot = makeZRotation(degToRad(0.0));
+
 		var translation = makeTranslation(0, 0, 0);
 		var escala = scale(10,5,10);
+
 		//model = matrixMultiply(model, xrot);
 		//model = matrixMultiply(model, yrot);
+
 		model = matrixMultiply(model, zrot);
 		model = matrixMultiply(model, escala);
 		model = matrixMultiply(model, translation);
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "model"), GL.FALSE,model);
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "view"), GL.FALSE,renderer.m_Camara.getViewMatrix());
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "perspective"), GL.FALSE,renderer.m_Camara.getPerspectiveMatrix());
 		var transInvModel = model;
 		transInvModel = makeInverse(transInvModel);
 		transInvModel = transpose(transInvModel);
+
+		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "model"), GL.FALSE,model);
+		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "view"), GL.FALSE,renderer.m_Camara.getViewMatrix());
+		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "perspective"), GL.FALSE,renderer.m_Camara.getPerspectiveMatrix());
 		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "transInvModel"), GL.FALSE,transInvModel);
 		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewPos"),renderer.m_Camara.getPosicion()[0], renderer.m_Camara.getPosicion()[1],renderer.m_Camara.getPosicion()[2]);
 		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewDir"),renderer.m_Camara.getObjetive()[0], renderer.m_Camara.getObjetive()[1],renderer.m_Camara.getObjetive()[2]);
