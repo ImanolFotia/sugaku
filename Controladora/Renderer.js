@@ -17,6 +17,7 @@ function Renderer() {
 
 		this.m_Camara = new Camara();
 		this.m_Camara.Init([130,20,0], [0,0,-1], 75, 16/9);
+
 };
 
 function Render(now)
@@ -65,7 +66,7 @@ function Render(now)
 		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "envmap"),envmap);
 		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "normalmapping"),normalmapping);
 		GL.viewport(0,0,GL.drawingBufferWidth, GL.drawingBufferHeight);
-		GL.clearColor(0, 0, 0, 1.0);
+		GL.clearColor(1, 0, 0, 1.0);
 		GL.clear(GL.COLOR_BUFFER_BIT | GL.DEPTH_BUFFER_BIT);
 
 		renderer.m_Model.Render(renderer.m_Shader.getshaderID(), renderer.m_CubeMap, renderer.texture, renderer.texture2, renderer.texture3);
