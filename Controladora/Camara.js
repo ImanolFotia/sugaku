@@ -83,6 +83,54 @@ Camara.prototype.MoverAtras = function()
 	this.m_Posicion[2] -= obj[2] * 0.2;
 }
 
+Camara.prototype.GirarDerecha = function()
+{
+	this.m_AnguloHorizontal += this.m_MouseSpeed * ( this.m_LastX - 0.1 ) ;
+    this.m_AnguloVertical   -= this.m_MouseSpeed * ( 0.0 ) ;
+
+
+	this.LockCamera();
+	this.m_Direccion = 	[
+                    		Math.cos( this.m_AnguloVertical ) * Math.sin( this.m_AnguloHorizontal ),
+                    		Math.sin( this.m_AnguloVertical ),
+                    		Math.cos( this.m_AnguloVertical ) * Math.cos( this.m_AnguloHorizontal )
+                	   	];
+                	   	
+    this.m_Derecha 	= 	[
+                			Math.sin(this.m_AnguloHorizontal     -       3.14*0.5),
+                			0,
+                			Math.cos(this.m_AnguloHorizontal     -       3.14*0.5)
+            			];
+    this.m_Up = cross(this.m_Direccion, this.m_Derecha);
+
+    this.m_LastY = 0.1;
+    this.m_LastX = 0.1;
+}
+
+Camara.prototype.GirarIzquierda = function()
+{
+this.m_AnguloHorizontal += this.m_MouseSpeed * ( this.m_LastX - mouse.x ) ;
+    this.m_AnguloVertical   -= this.m_MouseSpeed * ( this.m_LastY - mouse.y ) ;
+
+
+	this.LockCamera();
+	this.m_Direccion = 	[
+                    		Math.cos( this.m_AnguloVertical ) * Math.sin( this.m_AnguloHorizontal ),
+                    		Math.sin( this.m_AnguloVertical ),
+                    		Math.cos( this.m_AnguloVertical ) * Math.cos( this.m_AnguloHorizontal )
+                	   	];
+                	   	
+    this.m_Derecha 	= 	[
+                			Math.sin(this.m_AnguloHorizontal     -       3.14*0.5),
+                			0,
+                			Math.cos(this.m_AnguloHorizontal     -       3.14*0.5)
+            			];
+    this.m_Up = cross(this.m_Direccion, this.m_Derecha);
+
+    this.m_LastY += 0.1;
+    this.m_LastX += 0.1;
+}
+
 Camara.prototype.ComputarDireccion = function()
 {
 	this.m_AnguloHorizontal += this.m_MouseSpeed * ( this.m_LastX - mouse.x ) ;
@@ -130,8 +178,8 @@ Camara.prototype.PollEvents = function()
 	document.onkeydown = keyboard.press;
 	document.onkeyup = keyboard.release;
 
-
-	this.ComputarDireccion();
+	if(noclip)
+		this.ComputarDireccion();
 
 
 	if(keyboard.pressed == "KeyW")
