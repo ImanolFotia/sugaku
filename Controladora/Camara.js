@@ -24,6 +24,7 @@ function Camara()
 	this.m_GiroDerecha;
 	this.m_Avanza;
 	this.m_Retrocede;
+	this.m_Tienda;
 }
 
 Camara.prototype.Init = function(pos /*Float32Array([x, y, z])*/, dir /*Float32Array([x, y, z])*/, FoV /*float*/, Asp /*float*/)
@@ -61,6 +62,7 @@ Camara.prototype.Init = function(pos /*Float32Array([x, y, z])*/, dir /*Float32A
 	this.m_VectorMovimiento[2] = this.m_Posicion[2];
 	this.m_GiroIzquierda = true;
 	this.m_GiroDerecha = true;
+	this.m_Tienda = false;
 }
 
 Camara.prototype.MoverAdelante = function()
@@ -128,6 +130,7 @@ Camara.prototype.Avanzar = function()
 	this.m_VectorMovimiento[1] = 18;
 	this.m_VectorMovimiento[2] = this.m_VectorMovimiento[2] + c * 21.0;
 
+
 	this.m_Avanza = true;
 
     this.m_Up = [0,1,0];
@@ -144,6 +147,20 @@ Camara.prototype.Retroceder = function()
 	this.m_VectorMovimiento[2] = this.m_VectorMovimiento[2] - c * 21.0;
 
 	this.m_Retrocede = true;
+
+    this.m_Up = [0,1,0];
+
+}
+
+Camara.prototype.IrTienda = function()
+{
+	var b = Math.round(Math.sin(this.m_VectorGiro));
+	var c = Math.round(Math.cos(this.m_VectorGiro));
+	this.m_VectorMovimiento[0] = 15;
+	this.m_VectorMovimiento[1] = 18;
+	this.m_VectorMovimiento[2] = 35;
+
+	this.m_Tienda = true;
 
     this.m_Up = [0,1,0];
 
@@ -175,6 +192,21 @@ Camara.prototype.ComputarDireccion = function()
 
 Camara.prototype.Interpolar = function()
 {
+
+		if(this.m_Tienda)
+		{
+			this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
+			this.m_Direccion = [0,0,-1];//slerp(this.m_Direccion, [0, 0, -1], 0.1);
+
+			console.log(this.m_Posicion[1], this.m_Posicion[2], this.m_Direccion[0], this.m_Direccion[2]);
+
+			if( Math.round(this.m_Posicion[0]) == 15 && 
+				Math.round(this.m_Posicion[2]) == 35 && 
+				Math.round(this.m_Direccion[0]) == 0 && 
+				Math.round(this.m_Direccion[2]) == -1)
+					this.m_Tienda = false;
+			
+		}
 		if(this.m_GiroDerecha)
 		{
 			var b = Math.round(Math.sin(this.m_VectorGiro));
@@ -182,7 +214,8 @@ Camara.prototype.Interpolar = function()
 			
 			this.m_Direccion = slerp(this.m_Direccion, [b, 0, c], 0.05);
 
-				if(this.m_Direccion[0] == b && this.m_Direccion[2] == c)
+
+				if(Math.round(this.m_Direccion[0]) == b && Math.round(this.m_Direccion[2]) == c)
 					this.m_GiroDerecha = false;
 		}
 
@@ -193,7 +226,7 @@ Camara.prototype.Interpolar = function()
 			
 			this.m_Direccion = slerp(this.m_Direccion, [b, 0, c], 0.05);
 
-				if(this.m_Direccion[0] == b && this.m_Direccion[2] == c)
+				if(Math.round(this.m_Direccion[0]) == b && Math.round(this.m_Direccion[2]) == c)
 					this.m_GiroDerecha = false;
 		}
 
@@ -207,6 +240,8 @@ Camara.prototype.Interpolar = function()
 		{
 			this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
 		}
+
+
 
 }
 
