@@ -4,7 +4,7 @@ function Renderer() {
 		this.m_Shader.initShaders(fragment, vertex);
 
 		this.m_RenderNormales = true;
-		this.m_RenderEnvMap = true;
+		this.m_RenderEnvMap = false;
 
 		this.m_CubeMap = loacubemap();
 

@@ -195,18 +195,19 @@ Camara.prototype.Interpolar = function()
 
 		if(this.m_Tienda)
 		{
-			this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
+			this.m_Posicion = lerp(this.m_Posicion, [15, 18, 35], 0.05);
 			this.m_Direccion = [0,0,-1];//slerp(this.m_Direccion, [0, 0, -1], 0.1);
 
 			console.log(this.m_Posicion[1], this.m_Posicion[2], this.m_Direccion[0], this.m_Direccion[2]);
-
+/*
 			if( Math.round(this.m_Posicion[0]) == 15 && 
 				Math.round(this.m_Posicion[2]) == 35 && 
 				Math.round(this.m_Direccion[0]) == 0 && 
 				Math.round(this.m_Direccion[2]) == -1)
-					this.m_Tienda = false;
+					this.m_Tienda = false;*/
 			
 		}
+		else{
 		if(this.m_GiroDerecha)
 		{
 			var b = Math.round(Math.sin(this.m_VectorGiro));
@@ -240,6 +241,7 @@ Camara.prototype.Interpolar = function()
 		{
 			this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
 		}
+	}
 
 
 

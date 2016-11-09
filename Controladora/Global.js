@@ -1,8 +1,8 @@
 var GL;
 var shader;
 var VBO;
-var envmap = 1;
-var normalmapping = 1;
+var envmap = false;
+var normalmapping = true;
 var camPos = 0;
 var deltaTime;
 var rotation;
