@@ -56,7 +56,9 @@ Camara.prototype.Init = function(pos /*Float32Array([x, y, z])*/, dir /*Float32A
 
 	this.m_CameraSpeed = 0.5;
 
-
+	this.m_VectorMovimiento[0] = this.m_Posicion[0];
+	this.m_VectorMovimiento[1] = 0.0;
+	this.m_VectorMovimiento[2] = this.m_Posicion[2];
 	this.m_GiroIzquierda = true;
 	this.m_GiroDerecha = true;
 }
@@ -122,9 +124,9 @@ Camara.prototype.Avanzar = function()
 {
 	var b = Math.round(Math.sin(this.m_VectorGiro));
 	var c = Math.round(Math.cos(this.m_VectorGiro));
-	this.m_VectorMovimiento[0] = this.m_Posicion[0] + b * 10.0;
-	this.m_VectorMovimiento[1] = 20;
-	this.m_VectorMovimiento[2] = this.m_Posicion[2] + c * 10.0;
+	this.m_VectorMovimiento[0] = this.m_VectorMovimiento[0] + b * 21.0;
+	this.m_VectorMovimiento[1] = 18;
+	this.m_VectorMovimiento[2] = this.m_VectorMovimiento[2] + c * 21.0;
 
 	this.m_Avanza = true;
 
@@ -137,9 +139,9 @@ Camara.prototype.Retroceder = function()
 {
 	var b = Math.round(Math.sin(this.m_VectorGiro));
 	var c = Math.round(Math.cos(this.m_VectorGiro));
-	this.m_VectorMovimiento[0] = this.m_Posicion[0] - b * 10.0;
-	this.m_VectorMovimiento[1] = 20;
-	this.m_VectorMovimiento[2] = this.m_Posicion[2] - c * 10.0;
+	this.m_VectorMovimiento[0] = this.m_VectorMovimiento[0] - b * 21.0;
+	this.m_VectorMovimiento[1] = 18;
+	this.m_VectorMovimiento[2] = this.m_VectorMovimiento[2] - c * 21.0;
 
 	this.m_Retrocede = true;
 

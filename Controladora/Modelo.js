@@ -73,7 +73,7 @@ Modelo.prototype.cargarModelo = function(Position, Normals, TexCoords, Binormals
     	GL.enableVertexAttribArray(0);
     	GL.vertexAttribPointer(1, 3, GL.FLOAT, false, 0, g_normalsOffset);
 		  GL.enableVertexAttribArray(1);
-    	GL.vertexAttribPointer(2, 3, GL.FLOAT, false, 0, g_texCoordsOffset);
+    	GL.vertexAttribPointer(2, 2, GL.FLOAT, false, 0, g_texCoordsOffset);
     	GL.enableVertexAttribArray(2);
     	GL.vertexAttribPointer(3, 3, GL.FLOAT, false, 0, g_binormalsOffset);
     	GL.enableVertexAttribArray(3);

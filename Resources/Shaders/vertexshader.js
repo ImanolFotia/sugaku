@@ -1,7 +1,7 @@
 	var vertex = [
 	"attribute vec3 position; ",
 	"attribute vec3 normal; ",
-	"attribute vec3 uvs; ",
+	"attribute vec2 uvs; ",
 	"attribute vec3 binormal; ",
 	"attribute vec3 tangent; ",
 	"varying vec2 UV; ",
