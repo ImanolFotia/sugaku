@@ -18,6 +18,7 @@ function Camara()
 	this.m_Derecha;
 	this.m_VectorGiro;
 	this.m_VectorMovimiento;
+	this.m_VectorMovimientoAnterior;
 	this.m_CameraSpeed;
 
 	this.m_GiroIzquierda;
@@ -60,6 +61,11 @@ Camara.prototype.Init = function(pos /*Float32Array([x, y, z])*/, dir /*Float32A
 	this.m_VectorMovimiento[0] = this.m_Posicion[0];
 	this.m_VectorMovimiento[1] = 0.0;
 	this.m_VectorMovimiento[2] = this.m_Posicion[2];
+
+
+	this.m_VectorMovimientoAnterior = pos;
+
+	
 	this.m_GiroIzquierda = true;
 	this.m_GiroDerecha = true;
 	this.m_Tienda = false;
@@ -67,7 +73,7 @@ Camara.prototype.Init = function(pos /*Float32Array([x, y, z])*/, dir /*Float32A
 
 Camara.prototype.MoverAdelante = function()
 {
-		var obj = normalizar(this.m_Direccion);
+	var obj = normalizar(this.m_Direccion);
 
 
 	this.m_Posicion[0] += obj[0] * this.m_CameraSpeed; 
@@ -126,6 +132,7 @@ Camara.prototype.Avanzar = function()
 {
 	var b = Math.round(Math.sin(this.m_VectorGiro));
 	var c = Math.round(Math.cos(this.m_VectorGiro));
+
 	this.m_VectorMovimiento[0] = this.m_VectorMovimiento[0] + b * 21.0;
 	this.m_VectorMovimiento[1] = 18;
 	this.m_VectorMovimiento[2] = this.m_VectorMovimiento[2] + c * 21.0;
@@ -142,6 +149,7 @@ Camara.prototype.Retroceder = function()
 {
 	var b = Math.round(Math.sin(this.m_VectorGiro));
 	var c = Math.round(Math.cos(this.m_VectorGiro));
+
 	this.m_VectorMovimiento[0] = this.m_VectorMovimiento[0] - b * 21.0;
 	this.m_VectorMovimiento[1] = 18;
 	this.m_VectorMovimiento[2] = this.m_VectorMovimiento[2] - c * 21.0;
@@ -193,19 +201,13 @@ Camara.prototype.ComputarDireccion = function()
 Camara.prototype.Interpolar = function()
 {
 
+		//console.log(this.m_Posicion[0], this.m_Posicion[2]);
 		if(this.m_Tienda)
 		{
 			this.m_Posicion = lerp(this.m_Posicion, [15, 18, 35], 0.05);
-			this.m_Direccion = [0,0,-1];//slerp(this.m_Direccion, [0, 0, -1], 0.1);
+			this.m_Direccion = [0,0,-1];
 
 			console.log(this.m_Posicion[1], this.m_Posicion[2], this.m_Direccion[0], this.m_Direccion[2]);
-/*
-			if( Math.round(this.m_Posicion[0]) == 15 && 
-				Math.round(this.m_Posicion[2]) == 35 && 
-				Math.round(this.m_Direccion[0]) == 0 && 
-				Math.round(this.m_Direccion[2]) == -1)
-					this.m_Tienda = false;*/
-			
 		}
 		else{
 		if(this.m_GiroDerecha)
@@ -227,19 +229,34 @@ Camara.prototype.Interpolar = function()
 			
 			this.m_Direccion = slerp(this.m_Direccion, [b, 0, c], 0.05);
 
-				if(Math.round(this.m_Direccion[0]) == b && Math.round(this.m_Direccion[2]) == c)
-					this.m_GiroDerecha = false;
+			if(Math.round(this.m_Direccion[0]) == b && Math.round(this.m_Direccion[2]) == c)
+				this.m_GiroDerecha = false;
 		}
 
 		if(this.m_Avanza)
 		{
-			this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
+			/*if(Math.round(this.m_VectorMovimiento[2]) < 10 || Math.round(this.m_VectorMovimiento[2]) > 80 || Math.round(this.m_VectorMovimiento[0]) < 10 || Math.round(this.m_VectorMovimiento[0]) > 125){
+				console.log("No se puede avanzar");
+				this.m_VectorMovimiento = this.m_VectorMovimientoAnterior;
+				console.log(this.m_VectorMovimientoAnterior[0], this.m_VectorMovimientoAnterior[2]);
+				this.m_Avanza = false;
+			}else{*/
+				this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
+				this.m_VectorMovimientoAnterior = this.m_VectorMovimiento;
+			//}
 
 		}
 
 		if(this.m_Retrocede)
 		{
-			this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
+			/*if(Math.round(this.m_VectorMovimiento[2]) < 10 || Math.round(this.m_VectorMovimiento[2]) > 80 || Math.round(this.m_VectorMovimiento[0]) < 10 || Math.round(this.m_VectorMovimiento[0]) > 125){
+				console.log("No se puede avanzar");
+				//this.m_VectorMovimiento = this.m_VectorMovimientoAnterior;
+				this.m_Retrocede = false;
+			}else{*/
+				this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
+				//this.m_VectorMovimientoAnterior = this.m_VectorMovimiento;
+			//}
 		}
 	}
 
