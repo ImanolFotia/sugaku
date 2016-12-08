@@ -14,7 +14,14 @@ body {
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	line-height: 150%;
-	background: url("../Resources/Texturas/background.png");
+  background-image: url("../Resources/Texturas/Sugaku.png");
+  background-repeat:no-repeat;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-position:center;
+  background-size: 100%;
 	position: relative;
 }
 

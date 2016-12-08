@@ -9,7 +9,8 @@
   		<link rel="stylesheet" type="text/css" href="Vista/cart.css">
   		<link rel="stylesheet" href="Resources/font-awesome-4.6.3/css/font-awesome.min.css">
 		</head>
-		<h1 style="color:white;">Proyecto: SAP/TFI </h1>
+		  <title style="color:black;">Sugaku</title>
+		<h1 style="color:black;"></h1>
 		<div id="Container">
 			<!-- CONTROLADORA -->
 			<!-- Scripts audio -->
@@ -18,15 +19,6 @@
 			<div id='audiolist'>
 			<!-- Agregar todos los audios por acá (solo en caso de ser necesario, si no preferible mandar 2do parametro en botón) -->
 			<!-- Audios \|/ -->
-			  <audio id="audiocheck" preload=auto>
-			    <source src="Resources/Audio/audiocheck.wav" type="audio/wav">
-			  Your browser does not support the audio element.
-			  </audio>
-
-			  <audio id="spring" preload=auto>
-			    <source src="Resources/Audio/Spring.mp3" type="audio/mp3">
-			  Your browser does not support the audio element.
-			  </audio>
 			<!-- Audios /|\ -->
 			</div>
 			<!-- Scripts rendering -->
@@ -49,14 +41,12 @@
 			<div id="Cart">
 				<table border="0" id="TableCart">
 					<tr>
-						<td>pepe
-						<td>pepe columna 2	
 					</tr>
 				</table>
 			</div>
 			<!-- Canvas -->
 			<script src="Vista/Resize.js"> </script>
-			<canvas id="WebGL" width="1920" height="1080"></canvas>
+			<canvas id="WebGL" width="848" height="480"></canvas>
 			<!-- Controles -->			
 			<button id="controlup" type="button" onclick="plop.Play(); renderer.m_Camara.Avanzar();">^</button>
 			<button id="controlleft" type="button" onclick="plop.Play();renderer.m_Camara.GirarIzquierda();"><</button>
