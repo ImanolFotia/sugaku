@@ -22,4 +22,4 @@ var yrot, xrot, zrot;
 var rot = 0.0;
 var plop = new Sound();
 var spring = new Sound();
-var noclip = 0;
+var noclip = 1;

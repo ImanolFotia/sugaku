@@ -17,7 +17,11 @@ function Renderer() {
 
 		this.m_Camara = new Camara();
 
-		this.m_Camara.Init([120,18,14], [0,0,1], 75, 16/9);
+		//this.m_Camara.Init([120,18,14], [0,0,1], 75, 16/9);
+		this.m_Camara.Init([0,0,0], [0,0,1], 75, 16/9);
+
+		this.m_Articulo = new Articulo();
+		this.m_Articulo.Init([0,0,0], 0,0);
 };
 
 function Render(now)
@@ -28,7 +32,9 @@ function Render(now)
 		then = now;
 
 		GL.useProgram(renderer.m_Shader.getshaderID());
-		GL.viewport(0,0,Canvas.width, Canvas.height);
+		GL.viewport(0,0,GL.drawingBufferWidth, GL.drawingBufferHeight);
+		GL.clearColor(0.8, 1, .5, 1.0);
+		GL.clear(GL.COLOR_BUFFER_BIT | GL.DEPTH_BUFFER_BIT);
 		GL.enable(GL.DEPTH_TEST);
 		var model = new Float32Array(16);
 
@@ -65,11 +71,10 @@ function Render(now)
 		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewDir"),renderer.m_Camara.getObjetive()[0], renderer.m_Camara.getObjetive()[1],renderer.m_Camara.getObjetive()[2]);
 		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "envmap"),envmap);
 		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "normalmapping"),normalmapping);
-		GL.viewport(0,0,GL.drawingBufferWidth, GL.drawingBufferHeight);
-		GL.clearColor(0.8, 1, .5, 1.0);
-		GL.clear(GL.COLOR_BUFFER_BIT | GL.DEPTH_BUFFER_BIT);
 
-		renderer.m_Model.Render(renderer.m_Shader.getshaderID(), renderer.m_CubeMap, renderer.texture, renderer.texture2, renderer.texture3);
+		//renderer.m_Model.Render(renderer.m_Shader.getshaderID(), renderer.m_CubeMap, renderer.texture, renderer.texture2, renderer.texture3);
+
+		renderer.m_Articulo.Render(renderer.m_Shader.getshaderID(),renderer.texture);
 
 		window.requestAnimationFrame(Render);
 }
