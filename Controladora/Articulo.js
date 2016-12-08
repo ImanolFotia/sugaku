@@ -8,6 +8,8 @@ function Articulo()
 	this.m_VBO;
 
 	this.m_Vertices;
+	this.m_Normals;
+	this.m_TexCoords;
 }
 
 Articulo.prototype.Init = function(pos, tipo, precio, textura)
@@ -16,6 +18,13 @@ Articulo.prototype.Init = function(pos, tipo, precio, textura)
 	this.m_Tipo = tipo;
 	this.m_Precio = precio;
 	this.m_Textura = textura;
+
+	this.m_Vertices = Float32Array[1.0, 1.0, 0.0, -1.0, 1.0, 0.0, -1.0, -1.0, 0.0,
+									1.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0];
+
+
+	this.m_Normals= Float32Array[0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0,
+								 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0];
 }
 
 Articulo.prototype.InitVAO = function()
