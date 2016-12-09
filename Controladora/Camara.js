@@ -57,6 +57,7 @@ Camara.prototype.Init = function(pos /*Float32Array([x, y, z])*/, dir /*Float32A
 	this.m_MouseSpeed = 0.01;
 
 	this.m_CameraSpeed = 0.5;
+	this.m_Derecha = [0.0, 0.0, 0.0];
 
 	this.m_VectorMovimiento[0] = this.m_Posicion[0];
 	this.m_VectorMovimiento[1] = 0.0;
