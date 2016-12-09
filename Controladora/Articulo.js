@@ -7,11 +7,11 @@ function Articulo()
 
 	this.m_VBOArticulo;
 
-	this.m_Vertices;
-	this.m_Normals;
-	this.m_TexCoords;
-	this.m_Binormals;
-	this.m_Tangents;
+	this.m_VerticesArticulo;
+	this.m_NormalsArticulo;
+	this.m_TexCoordsArticulo;
+	this.m_BinormalsArticulo;
+	this.m_TangentsArticulo;
 
 	this.m_VerticesOffset;
 	this.m_NormalsOffset;
@@ -32,38 +32,38 @@ Articulo.prototype.InitVAO = function()
 {
 
 
-	m_Vertices = new Float32Array([ 1.0, 1.0, 0.0, -1.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0]);
+	m_VerticesArticulo = new Float32Array([-1.0, 1.0, 0.0, 1.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0]);
 
-	m_Normals = new Float32Array([ 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]);
+	m_NormalsArticulo = new Float32Array([ 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]);
 
-	m_TexCoords = new Float32Array([1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0]);
+	m_TexCoordsArticulo = new Float32Array([0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0]);
 	
-	m_Binormals = new Float32Array([ 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]);
+	m_BinormalsArticulo = new Float32Array([ 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]);
 
-	m_Tangents = new Float32Array([ 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]);
+	m_TangentsArticulo = new Float32Array([ 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]);
 
 
 	this.m_VBOArticulo = GL.createBuffer();
 
 	GL.bindBuffer(GL.ARRAY_BUFFER, this.m_VBOArticulo);
 	GL.bufferData(GL.ARRAY_BUFFER, 
-                  m_Vertices.byteLength +
-                  m_Normals.byteLength +
-                  m_TexCoords.byteLength +
-                  m_Binormals.byteLength +
-                  m_Tangents.byteLength, GL.STATIC_DRAW);
+                  m_VerticesArticulo.byteLength +
+                  m_NormalsArticulo.byteLength +
+                  m_TexCoordsArticulo.byteLength +
+                  m_BinormalsArticulo.byteLength +
+                  m_TangentsArticulo.byteLength, GL.STATIC_DRAW);
 
 
-    	m_NormalsOffset = m_Vertices.byteLength;
-    	m_TexCoordsOffset = m_NormalsOffset + m_Normals.byteLength;
-    	m_BinormalOffset = m_TexCoordsOffset +m_TexCoords.byteLength;
-    	m_TangentOffset = m_BinormalOffset + m_Binormals.byteLength;
+    	m_NormalsOffset = m_VerticesArticulo.byteLength;
+    	m_TexCoordsOffset = m_NormalsOffset + m_NormalsArticulo.byteLength;
+    	m_BinormalOffset = m_TexCoordsOffset +m_TexCoordsArticulo.byteLength;
+    	m_TangentOffset = m_BinormalOffset + m_BinormalsArticulo.byteLength;
 
-    	GL.bufferSubData(GL.ARRAY_BUFFER, 0, m_Vertices);
-    	GL.bufferSubData(GL.ARRAY_BUFFER, m_NormalsOffset, m_Normals);
-    	GL.bufferSubData(GL.ARRAY_BUFFER, m_TexCoordsOffset, m_TexCoords);
-    	GL.bufferSubData(GL.ARRAY_BUFFER, m_BinormalOffset, m_Binormals);
-    	GL.bufferSubData(GL.ARRAY_BUFFER, m_TangentOffset, m_Tangents);
+    	GL.bufferSubData(GL.ARRAY_BUFFER, 0, m_VerticesArticulo);
+    	GL.bufferSubData(GL.ARRAY_BUFFER, m_NormalsOffset, m_NormalsArticulo);
+    	GL.bufferSubData(GL.ARRAY_BUFFER, m_TexCoordsOffset, m_TexCoordsArticulo);
+    	GL.bufferSubData(GL.ARRAY_BUFFER, m_BinormalOffset, m_BinormalsArticulo);
+    	GL.bufferSubData(GL.ARRAY_BUFFER, m_TangentOffset, m_TangentsArticulo);
 
 	    GL.vertexAttribPointer(0, 3, GL.FLOAT, false, 0, 0);
     	GL.enableVertexAttribArray(0);
@@ -78,13 +78,23 @@ Articulo.prototype.InitVAO = function()
 
 }
 
-Articulo.prototype.Render = function(program, textura)
+Articulo.prototype.Render = function(program, cubemap, texture, texture2, texture3)
 {
     GL.activeTexture(GL.TEXTURE0);
-    GL.bindTexture(GL.TEXTURE_2D, textura);
-    GL.uniform1i(GL.getUniformLocation(program, "sampler"),0);
+    GL.bindTexture(GL.TEXTURE_CUBE_MAP, cubemap);
+    GL.uniform1i(GL.getUniformLocation(program, "cubemap"),0);
+    GL.activeTexture(GL.TEXTURE1);
+    GL.bindTexture(GL.TEXTURE_2D, texture);
+    GL.uniform1i(GL.getUniformLocation(program, "sampler"),1);
+    GL.activeTexture(GL.TEXTURE2);
+    GL.bindTexture(GL.TEXTURE_2D, texture2);
+    GL.uniform1i(GL.getUniformLocation(program, "sampler2"),2);
+    GL.activeTexture(GL.TEXTURE3);
+    GL.bindTexture(GL.TEXTURE_2D, texture3);
+    GL.uniform1i(GL.getUniformLocation(program, "sampler3"),3);
 
     GL.bindBuffer(GL.ARRAY_BUFFER, this.m_VBOArticulo);
+
     GL.vertexAttribPointer(0, 3, GL.FLOAT, false, 0, 0);
     GL.enableVertexAttribArray(0);
     GL.vertexAttribPointer(1, 3, GL.FLOAT, false, 0, m_NormalsOffset);

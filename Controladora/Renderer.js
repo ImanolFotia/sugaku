@@ -12,8 +12,11 @@ function Renderer() {
 		this.texture2 = loadTexture("Resources/Texturas/box3.jpg");
 		this.texture3 = loadTexture("Resources/Texturas/box4.jpg");
 
-		//this.m_Model = new Modelo();
-		//this.m_Model.cargarModelo(Positions, Normals, TexCoords, Binormals, Tangents, Indices);
+
+		this.leche = loadTexture("Resources/Sprites/leche.png");
+
+		this.m_Model = new Modelo();
+		this.m_Model.cargarModelo(Positions, Normals, TexCoords, Binormals, Tangents, Indices);
 
 		this.m_Camara = new Camara();
 
@@ -73,7 +76,7 @@ function Render(now)
 		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "envmap"),envmap);
 		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "normalmapping"),normalmapping);
 
-		//renderer.m_Model.Render(renderer.m_Shader.getshaderID(), renderer.m_CubeMap, renderer.texture, renderer.texture2, renderer.texture3);
+		renderer.m_Model.Render(renderer.m_Shader.getshaderID(), renderer.m_CubeMap, renderer.texture, renderer.texture2, renderer.texture3);
 
 		GL.useProgram(renderer.m_Shader.getshaderID());
 
@@ -86,7 +89,34 @@ function Render(now)
 		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "envmap"),envmap);
 		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "normalmapping"),normalmapping);
 
-		renderer.m_Articulo.Render(renderer.m_Shader.getshaderID(), renderer.texture);
+		renderer.m_Articulo.Render(renderer.m_Shader.getshaderID(), renderer.m_CubeMap, renderer.leche, renderer.texture2, renderer.texture3);
+
+		GL.useProgram(renderer.m_Shader.getshaderID());
+
+
+		var translation = makeTranslation(0, 0, 10);
+		var escala = scale(10,5,10);
+
+		//model = matrixMultiply(model, xrot);
+		//model = matrixMultiply(model, yrot);
+		model = Identity();
+		model = matrixMultiply(model, zrot);
+		model = matrixMultiply(model, escala);
+		model = matrixMultiply(model, translation);
+		var transInvModel = model;
+		transInvModel = makeInverse(transInvModel);
+		transInvModel = transpose(transInvModel);
+
+		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "model"), GL.FALSE,model);
+		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "view"), GL.FALSE,renderer.m_Camara.getViewMatrix());
+		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "perspective"), GL.FALSE,renderer.m_Camara.getPerspectiveMatrix());
+		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "transInvModel"), GL.FALSE,transInvModel);
+		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewPos"),renderer.m_Camara.getPosicion()[0], renderer.m_Camara.getPosicion()[1],renderer.m_Camara.getPosicion()[2]);
+		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewDir"),renderer.m_Camara.getObjetive()[0], renderer.m_Camara.getObjetive()[1],renderer.m_Camara.getObjetive()[2]);
+		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "envmap"),envmap);
+		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "normalmapping"),normalmapping);
+
+		renderer.m_Articulo.Render(renderer.m_Shader.getshaderID(), renderer.m_CubeMap, renderer.texture, renderer.texture2, renderer.texture3);
 
 		window.requestAnimationFrame(Render);
 }

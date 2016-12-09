@@ -30,6 +30,17 @@ Modelo.prototype.Render = function(program, cubemap, texture, texture2, texture3
 
     GL.bindBuffer(GL.ARRAY_BUFFER, this.m_VBO);
 
+          GL.vertexAttribPointer(0, 3, GL.FLOAT, false, 0, 0);
+      GL.enableVertexAttribArray(0);
+      GL.vertexAttribPointer(1, 3, GL.FLOAT, false, 0, g_normalsOffset);
+      GL.enableVertexAttribArray(1);
+      GL.vertexAttribPointer(2, 2, GL.FLOAT, false, 0, g_texCoordsOffset);
+      GL.enableVertexAttribArray(2);
+      GL.vertexAttribPointer(3, 3, GL.FLOAT, false, 0, g_binormalsOffset);
+      GL.enableVertexAttribArray(3);
+      GL.vertexAttribPointer(4, 3, GL.FLOAT, false, 0, g_tangentsOffset);
+      GL.enableVertexAttribArray(4);
+
     GL.drawElements(GL.TRIANGLES, m_Indices.length, GL.UNSIGNED_SHORT, 0);
 
 }
