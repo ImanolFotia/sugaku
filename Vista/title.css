@@ -1,0 +1,13 @@
+@font-face {
+    font-family: Asian;
+    src: url(Asian.ttf);
+}
+
+h1{
+	font-family: Asian;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-align: center;
+	font-size: 750%;
+}
