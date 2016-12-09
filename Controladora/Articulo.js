@@ -5,11 +5,19 @@ function Articulo()
 	this.m_Precio;
 	this.m_Textura;
 
-	this.m_VBO;
+	this.m_VBOArticulo;
 
 	this.m_Vertices;
 	this.m_Normals;
 	this.m_TexCoords;
+	this.m_Binormals;
+	this.m_Tangents;
+
+	this.m_VerticesOffset;
+	this.m_NormalsOffset;
+	this.m_TexCoordsOffset;
+	this.m_TangentOffset;
+	this.m_BinormalOffset;
 }
 
 Articulo.prototype.Init = function(pos, tipo, precio)
@@ -18,52 +26,56 @@ Articulo.prototype.Init = function(pos, tipo, precio)
 	this.m_Tipo = tipo;
 	this.m_Precio = precio;
 
-	this.m_Vertices = Float32Array[ 1.0, 1.0, 0.0, -1.0, 1.0, 0.0, -1.0, -1.0, 0.0,
-								    1.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0];
-
-	this.m_Normals = Float32Array[ 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0,
-								   0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0];
-
-	this.m_TexCoords = Float32Array[1.0, 0.0, 0.0, 0.0, 0.0, 1.0,
-						     		1.0, 0.0, 0.0, 0.0, 1.0, 1.0];
 }
 
 Articulo.prototype.InitVAO = function()
 {
-	this.m_VBO = GL.createBuffer();
-	GL.bindBuffer(GL.ARRAY_BUFFER, this.m_VBO);
+
+
+	m_Vertices = new Float32Array([ 1.0, 1.0, 0.0, -1.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0]);
+
+	m_Normals = new Float32Array([ 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]);
+
+	m_TexCoords = new Float32Array([1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0]);
+	
+	m_Binormals = new Float32Array([ 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]);
+
+	m_Tangents = new Float32Array([ 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]);
+
+
+	this.m_VBOArticulo = GL.createBuffer();
+
+	GL.bindBuffer(GL.ARRAY_BUFFER, this.m_VBOArticulo);
 	GL.bufferData(GL.ARRAY_BUFFER, 
-                  this.m_Vertices.byteLength +
-                  this.m_Normals.byteLength +
-                  this.m_TexCoords.byteLength +
+                  m_Vertices.byteLength +
+                  m_Normals.byteLength +
+                  m_TexCoords.byteLength +
                   m_Binormals.byteLength +
                   m_Tangents.byteLength, GL.STATIC_DRAW);
 
 
-    	var g_normalsOffset = m_Positions.byteLength;
-    	var g_texCoordsOffset = g_normalsOffset + m_Normals.byteLength;
-    	var g_binormalsOffset = g_texCoordsOffset + m_TexCoords.byteLength;
-    	var g_tangentsOffset = g_binormalsOffset + m_Binormals.byteLength;
+    	m_NormalsOffset = m_Vertices.byteLength;
+    	m_TexCoordsOffset = m_NormalsOffset + m_Normals.byteLength;
+    	m_BinormalOffset = m_TexCoordsOffset +m_TexCoords.byteLength;
+    	m_TangentOffset = m_BinormalOffset + m_Binormals.byteLength;
 
-    	GL.bufferSubData(GL.ARRAY_BUFFER, 0, this.m_Vertices);
-    	GL.bufferSubData(GL.ARRAY_BUFFER, g_normalsOffset, this.m_Normals);
-    	GL.bufferSubData(GL.ARRAY_BUFFER, g_texCoordsOffset, this.m_TexCoords);
-    	GL.bufferSubData(GL.ARRAY_BUFFER, g_binormalsOffset, m_Binormals);
-    	GL.bufferSubData(GL.ARRAY_BUFFER, g_tangentsOffset, m_Tangents);
+    	GL.bufferSubData(GL.ARRAY_BUFFER, 0, m_Vertices);
+    	GL.bufferSubData(GL.ARRAY_BUFFER, m_NormalsOffset, m_Normals);
+    	GL.bufferSubData(GL.ARRAY_BUFFER, m_TexCoordsOffset, m_TexCoords);
+    	GL.bufferSubData(GL.ARRAY_BUFFER, m_BinormalOffset, m_Binormals);
+    	GL.bufferSubData(GL.ARRAY_BUFFER, m_TangentOffset, m_Tangents);
 
 	    GL.vertexAttribPointer(0, 3, GL.FLOAT, false, 0, 0);
     	GL.enableVertexAttribArray(0);
-    	GL.vertexAttribPointer(1, 3, GL.FLOAT, false, 0, g_normalsOffset);
+    	GL.vertexAttribPointer(1, 3, GL.FLOAT, false, 0, m_NormalsOffset);
 		GL.enableVertexAttribArray(1);
-    	GL.vertexAttribPointer(2, 2, GL.FLOAT, false, 0, g_texCoordsOffset);
+    	GL.vertexAttribPointer(2, 2, GL.FLOAT, false, 0, m_TexCoordsOffset);
     	GL.enableVertexAttribArray(2);
-    	GL.vertexAttribPointer(3, 3, GL.FLOAT, false, 0, g_binormalsOffset);
+    	GL.vertexAttribPointer(3, 3, GL.FLOAT, false, 0, m_BinormalOffset);
     	GL.enableVertexAttribArray(3);
-    	GL.vertexAttribPointer(4, 3, GL.FLOAT, false, 0, g_tangentsOffset);
+    	GL.vertexAttribPointer(4, 3, GL.FLOAT, false, 0, m_TangentOffset);
     	GL.enableVertexAttribArray(4);
 
-
-	GL.bindBuffer(GL.ARRAY_BUFFER, 0);
 }
 
 Articulo.prototype.Render = function(program, textura)
@@ -72,7 +84,18 @@ Articulo.prototype.Render = function(program, textura)
     GL.bindTexture(GL.TEXTURE_2D, textura);
     GL.uniform1i(GL.getUniformLocation(program, "sampler"),0);
 
-    GL.bindBuffer(GL.ARRAY_BUFFER, this.m_VBO);
+    GL.bindBuffer(GL.ARRAY_BUFFER, this.m_VBOArticulo);
+    GL.vertexAttribPointer(0, 3, GL.FLOAT, false, 0, 0);
+    GL.enableVertexAttribArray(0);
+    GL.vertexAttribPointer(1, 3, GL.FLOAT, false, 0, m_NormalsOffset);
+	GL.enableVertexAttribArray(1);
+    GL.vertexAttribPointer(2, 2, GL.FLOAT, false, 0, m_TexCoordsOffset);
+    GL.enableVertexAttribArray(2);
+    GL.vertexAttribPointer(3, 3, GL.FLOAT, false, 0, m_BinormalOffset);
+    GL.enableVertexAttribArray(3);
+    GL.vertexAttribPointer(4, 3, GL.FLOAT, false, 0, m_TangentOffset);
+    GL.enableVertexAttribArray(4);
+
 
     GL.drawArrays(GL.TRIANGLE_STRIP, 0, 4);
 }
