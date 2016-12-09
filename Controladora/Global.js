@@ -20,7 +20,7 @@ var Canvas;
 var then = 0;
 var yrot, xrot, zrot;
 var rot = 0.0;
-var noclip = 0;
+var noclip = 1;
 //declaración de audios
 var background = new Sound();
 var math = new Sound();
