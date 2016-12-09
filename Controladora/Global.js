@@ -20,6 +20,10 @@ var Canvas;
 var then = 0;
 var yrot, xrot, zrot;
 var rot = 0.0;
+var noclip = 0;
+//declaración de audios
+var background = new Sound();
+var math = new Sound();
+var menu = new Sound();
 var plop = new Sound();
-var spring = new Sound();
-var noclip = 1;
+var final = new Sound();
