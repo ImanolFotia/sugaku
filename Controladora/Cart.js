@@ -17,3 +17,4 @@ function hideCart(){
 function showCart(){
 	document.getElementById("TableCart").style.zIndex = 2;
 }
+
