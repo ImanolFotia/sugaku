@@ -14,7 +14,10 @@ body {
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	line-height: 150%;
-  background: linear-gradient(to right, #00001a, #0066ff, #00001a); 
+  background: -webkit-linear-gradient(right, #00001a, #000080, #00001a); 
+  background: -o-linear-gradient(right, #00001a, #000080, #00001a); 
+  background: -moz-linear-gradient(right, #00001a, #000080, #00001a); 
+  background: linear-gradient(to right, #00001a, #000080, #00001a); 
   /*background-image: url("../Resources/Texturas/Sugaku.png");
   background-repeat:no-repeat;
   -webkit-background-size:cover;
@@ -34,7 +37,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -100;
-  opacity: 0.45;
+  opacity: 0.25;
 }
 
 .headerContainer, .bodyContainer {
