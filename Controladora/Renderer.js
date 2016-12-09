@@ -3,6 +3,7 @@ function Renderer() {
 		this.m_Shader = new Shader();
 		this.m_Shader.initShaders(fragment, vertex);
 
+		this.m_CantidadArticulos = 3;
 
 		this.m_SpriteShader = new Shader();
 		this.m_SpriteShader.initShaders(spritef, spritev);
@@ -27,10 +28,45 @@ function Renderer() {
 		//this.m_Camara.Init([120,18,14], [0,0,1], 75, 16/9);
 		this.m_Camara.Init([0,0,0], [0,0,1], 75, 16/9);
 
-		this.m_Articulo = new Articulo();
-		this.m_Articulo.Init([0,0,0], 0,0);
-		this.m_Articulo.InitVAO();
+		this.m_Articulos = new Articulo();
+
+		for(var i = 0; i < this.m_CantidadArticulos; i++)
+		{
+		this.m_Articulos.Init([10*10,3.5*5,4.75*10], 0, 0);
+		this.m_Articulos.InitVAO();
+		}
 };
+
+Renderer.prototype.DibujarArticulos = function()
+{
+	for(var i = 0; i < this.m_CantidadArticulos; i++)
+	{
+		GL.useProgram(this.m_SpriteShader.getshaderID());
+
+		var translation = makeTranslation(0, 0, 0);
+		var escala = scale(2,2,2);
+		var model = new Float32Array(16);
+		model = Identity();
+		model = matrixMultiply(model, escala);
+		var transInvModel = model;
+		transInvModel = makeInverse(transInvModel);
+		transInvModel = transpose(transInvModel);
+
+		GL.uniformMatrix4fv(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "model"), GL.FALSE,model);
+		GL.uniformMatrix4fv(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "view"), GL.FALSE,this.m_Camara.getViewMatrix());
+		GL.uniformMatrix4fv(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "perspective"), GL.FALSE,this.m_Camara.getPerspectiveMatrix());
+		GL.uniformMatrix4fv(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "transInvModel"), GL.FALSE,transInvModel);
+		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "viewPos"),this.m_Camara.getPosicion()[0], this.m_Camara.getPosicion()[1],this.m_Camara.getPosicion()[2]);
+		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "viewDir"),this.m_Camara.getObjetive()[0], this.m_Camara.getObjetive()[1],this.m_Camara.getObjetive()[2]);
+		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "SpritePos"), this.m_Articulos.m_Posicion[0] - (i*19.5),
+																							this.m_Articulos.m_Posicion[1],
+																							this.m_Articulos.m_Posicion[2]);
+
+		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "CameraRight"),this.m_Camara.m_Derecha[0], this.m_Camara.m_Derecha[1],this.m_Camara.m_Derecha[2]);
+
+		this.m_Articulos.Render(this.m_SpriteShader.getshaderID(), this.leche);
+	}
+}
 
 function Render(now)
 	{
@@ -82,45 +118,7 @@ function Render(now)
 
 		renderer.m_Model.Render(renderer.m_Shader.getshaderID(), renderer.m_CubeMap, renderer.texture, renderer.texture2, renderer.texture3);
 
-		GL.useProgram(renderer.m_Shader.getshaderID());
-
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "model"), GL.FALSE,model);
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "view"), GL.FALSE,renderer.m_Camara.getViewMatrix());
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "perspective"), GL.FALSE,renderer.m_Camara.getPerspectiveMatrix());
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "transInvModel"), GL.FALSE,transInvModel);
-		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewPos"),renderer.m_Camara.getPosicion()[0], renderer.m_Camara.getPosicion()[1],renderer.m_Camara.getPosicion()[2]);
-		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewDir"),renderer.m_Camara.getObjetive()[0], renderer.m_Camara.getObjetive()[1],renderer.m_Camara.getObjetive()[2]);
-		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "envmap"),envmap);
-		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "normalmapping"),normalmapping);
-
-		renderer.m_Articulo.Render(renderer.m_Shader.getshaderID(), renderer.m_CubeMap, renderer.leche, renderer.texture2, renderer.texture3);
-
-		GL.useProgram(renderer.m_Shader.getshaderID());
-
-
-		var translation = makeTranslation(0, 0, 10);
-		var escala = scale(10,5,10);
-
-		//model = matrixMultiply(model, xrot);
-		//model = matrixMultiply(model, yrot);
-		model = Identity();
-		model = matrixMultiply(model, zrot);
-		model = matrixMultiply(model, escala);
-		model = matrixMultiply(model, translation);
-		var transInvModel = model;
-		transInvModel = makeInverse(transInvModel);
-		transInvModel = transpose(transInvModel);
-
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "model"), GL.FALSE,model);
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "view"), GL.FALSE,renderer.m_Camara.getViewMatrix());
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "perspective"), GL.FALSE,renderer.m_Camara.getPerspectiveMatrix());
-		GL.uniformMatrix4fv(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "transInvModel"), GL.FALSE,transInvModel);
-		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewPos"),renderer.m_Camara.getPosicion()[0], renderer.m_Camara.getPosicion()[1],renderer.m_Camara.getPosicion()[2]);
-		GL.uniform3f(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "viewDir"),renderer.m_Camara.getObjetive()[0], renderer.m_Camara.getObjetive()[1],renderer.m_Camara.getObjetive()[2]);
-		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "envmap"),envmap);
-		GL.uniform1i(GL.getUniformLocation(renderer.m_Shader.getshaderID(), "normalmapping"),normalmapping);
-
-		renderer.m_Articulo.Render(renderer.m_Shader.getshaderID(), renderer.m_CubeMap, renderer.texture, renderer.texture2, renderer.texture3);
+		renderer.DibujarArticulos();
 
 		window.requestAnimationFrame(Render);
 }

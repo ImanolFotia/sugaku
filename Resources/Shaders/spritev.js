@@ -17,10 +17,9 @@
 	"void main(){ ",
 	"vec3 vertexPosition =",
     "SpritePos",
-    "+ CameraRight * position.x * 1.0f",
-    "+ vec3(0,1,0)  * position.y * 1.0f;",
-
-    "gl_Position = perspective * view * position * vec4(vertexPosition, 1.0f) ;",
+    "+ CameraRight * position.x * 2.0",
+    "+ vec3(0,1,0)  * position.y * 2.0;",
+    "gl_Position = perspective * view * vec4(vertexPosition, 1.0) ;",
 	"UV = uvs.xy; ",
 	"cubeuv = position; ",
 	"Normal = vec3(mat3(transInvModel) * normal); ",

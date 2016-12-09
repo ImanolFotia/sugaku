@@ -78,20 +78,11 @@ Articulo.prototype.InitVAO = function()
 
 }
 
-Articulo.prototype.Render = function(program, cubemap, texture, texture2, texture3)
+Articulo.prototype.Render = function(program, texture)
 {
     GL.activeTexture(GL.TEXTURE0);
-    GL.bindTexture(GL.TEXTURE_CUBE_MAP, cubemap);
-    GL.uniform1i(GL.getUniformLocation(program, "cubemap"),0);
-    GL.activeTexture(GL.TEXTURE1);
     GL.bindTexture(GL.TEXTURE_2D, texture);
-    GL.uniform1i(GL.getUniformLocation(program, "sampler"),1);
-    GL.activeTexture(GL.TEXTURE2);
-    GL.bindTexture(GL.TEXTURE_2D, texture2);
-    GL.uniform1i(GL.getUniformLocation(program, "sampler2"),2);
-    GL.activeTexture(GL.TEXTURE3);
-    GL.bindTexture(GL.TEXTURE_2D, texture3);
-    GL.uniform1i(GL.getUniformLocation(program, "sampler3"),3);
+    GL.uniform1i(GL.getUniformLocation(program, "sampler"),0);
 
     GL.bindBuffer(GL.ARRAY_BUFFER, this.m_VBOArticulo);
 
