@@ -11,5 +11,6 @@ function main()
 	InicializarSistemaAudio();
 	
 	requestAnimationFrame(Render);
-}
 
+	background.Play();
+}

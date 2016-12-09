@@ -1,7 +1,10 @@
 function InicializarSistemaAudio()
 {
 	plop.Init(1, "plop", "mp3", false, 1, 1);
-	spring.Init(2, "Spring", "mp3", false, 1, 1);
+	background.Init(2, "Background", "mp3", true, 1, 0.5);
+	math.Init(3, "Math", "mp3", false, 1, 1);
+	menu.Init(4, "Menu", "mp3", false, 1, 1);
+	final.Init(5, "Final", "mp3", false, 1, 1);
 }
 
 function Sound()
