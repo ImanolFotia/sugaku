@@ -3,6 +3,10 @@ function Renderer() {
 		this.m_Shader = new Shader();
 		this.m_Shader.initShaders(fragment, vertex);
 
+
+		this.m_SpriteShader = new Shader();
+		this.m_SpriteShader.initShaders(spritef, spritev);
+
 		this.m_RenderNormales = true;
 		this.m_RenderEnvMap = false;
 

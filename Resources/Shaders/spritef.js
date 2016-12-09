@@ -1,4 +1,4 @@
-var fragment = ["precision mediump float; \n",
+var spritef = ["precision mediump float; \n",
 	"varying vec2 UV; \n",
 	"varying vec3 Normal, T, B, N; \n",
 	"varying vec3 FragPos;\n",

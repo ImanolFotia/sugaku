@@ -1,4 +1,4 @@
-	var vertex = [
+	var spritev = [
 	"attribute vec3 position; ",
 	"attribute vec3 normal; ",
 	"attribute vec2 uvs; ",
@@ -15,12 +15,12 @@
 	"uniform vec3 CameraRight;",
 	"uniform vec3 SpritePos;",
 	"void main(){ ",
-	"vec3 vertexPosition =";
-    "SpritePos";
-    "+ CameraRight * position.x * 1.0";
-    "+ vec3(0,1,0)  * position.y * 1.0;";
+	"vec3 vertexPosition =",
+    "SpritePos",
+    "+ CameraRight * position.x * 1.0f",
+    "+ vec3(0,1,0)  * position.y * 1.0f;",
 
-    "gl_Position = projection * view * positions * vec4(vertexPosition, 1.0) ;";
+    "gl_Position = perspective * view * position * vec4(vertexPosition, 1.0f) ;",
 	"UV = uvs.xy; ",
 	"cubeuv = position; ",
 	"Normal = vec3(mat3(transInvModel) * normal); ",
