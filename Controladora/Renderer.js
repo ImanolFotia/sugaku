@@ -25,8 +25,7 @@ function Renderer() {
 
 		this.m_Camara = new Camara();
 
-		//this.m_Camara.Init([120,18,14], [0,0,1], 75, 16/9);
-		this.m_Camara.Init([0,0,0], [0,0,1], 75, 16/9);
+		this.m_Camara.Init([120,18,14], [0,0,1], 75, 16/9);
 
 		this.m_Articulos = new Articulo();
 
