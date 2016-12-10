@@ -29,4 +29,4 @@ TiposArticulos[0] = ["Resources/Sprites/Botella de Agua clone.png"];
 TiposArticulos[1] = ["Resources/Sprites/Caramelo 256.png"];
 TiposArticulos[2] = ["Resources/Sprites/Caramelos 256.png"];
 TiposArticulos[3] = ["Resources/Sprites/leche.png"];
-
+TiposArticulos[4] = ["Resources/Sprites/Chupetines.png"];

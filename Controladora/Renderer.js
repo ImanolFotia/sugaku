@@ -32,7 +32,7 @@ function Renderer() {
 		for(var i = 0; i < this.m_CantidadArticulos; i++)
 		{
 		this.m_Articulos[i] = new Articulo();
-		this.m_Articulos[i].Init(TiposArticulos[Math.round(((Math.sin(i)*0.5+0.5)*3))], PocisionesArticulos[i], 0, 0);
+		this.m_Articulos[i].Init(TiposArticulos[Math.floor((Math.random() * 5) + 0)], PocisionesArticulos[i], 0, 0);
 		this.m_Articulos[i].InitVAO();
 		}
 };
