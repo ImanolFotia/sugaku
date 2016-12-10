@@ -1,4 +1,5 @@
 #Container{
+  padding-top: 10px;
   width: 100%;
   height: 100%;
   position: relative;
@@ -14,30 +15,10 @@ body {
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	line-height: 150%;
-  background: -webkit-linear-gradient(right, #00001a, #000080, #00001a); 
-  background: -o-linear-gradient(right, #00001a, #000080, #00001a); 
-  background: -moz-linear-gradient(right, #00001a, #000080, #00001a); 
-  background: linear-gradient(to right, #00001a, #000080, #00001a); 
-  /*background-image: url("../Resources/Texturas/Sugaku.png");
-  background-repeat:no-repeat;
-  -webkit-background-size:cover;
-  -moz-background-size:cover;
-  -o-background-size:cover;
-  background-size:cover;
-  background-position:center;
-  background-size: 100%;
-	position: relative;*/
-}
-
-#Background {
-  background: url("../Resources/Texturas/Sugaku.png");
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -100;
-  opacity: 0.25;
+  background: -webkit-linear-gradient(right, #001ba5, #2146ff, #001ba5); 
+  background: -o-linear-gradient(right, #001ba5, #2146ff, #001ba5); 
+  background: -moz-linear-gradient(right, #001ba5, #2146ff, #001ba5); 
+  background: linear-gradient(to right, #001ba5, #2146ff, #001ba5); 
 }
 
 .headerContainer, .bodyContainer {

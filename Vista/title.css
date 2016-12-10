@@ -3,11 +3,106 @@
     src: url(Asian.ttf);
 }
 
-h1{
+#Titulo1{
+	top: 10%;
+	position: absolute;
+	background: none;
+    color: #fff;
+    margin: 0 0 0 40px;
+	color: white;	
 	font-family: Asian;
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;
 	text-align: center;
-	font-size: 750%;
+	font-size: 350%;
+}
+
+#Titulo2{
+	top: 20%;
+	position: absolute;
+	background: none;
+    color: #fff;
+    margin: 0 0 0 40px;
+	color: white;	
+	font-family: Asian;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-align: center;
+	font-size: 350%;
+}
+
+#Titulo3{
+	top: 30%;
+	position: absolute;
+	background: none;
+    color: #fff;
+    margin: 0 0 0 40px;
+	color: white;	
+	font-family: Asian;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-align: center;
+	font-size: 350%;
+}
+
+#Titulo4{
+	top: 40%;
+	position: absolute;
+	background: none;
+    color: #fff;
+    margin: 0 0 0 40px;
+	color: white;	
+	font-family: Asian;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-align: center;
+	font-size: 350%;
+}
+
+#Titulo5{
+	top: 50%;
+	position: absolute;
+	background: none;
+    color: #fff;
+    margin: 0 0 0 40px;
+	color: white;	
+	font-family: Asian;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-align: center;
+	font-size: 350%;
+}
+
+#Titulo6{
+	top: 60%;
+	position: absolute;
+	background: none;
+    color: #fff;
+    margin: 0 0 0 40px;
+	color: white;	
+	font-family: Asian;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-align: center;
+	font-size: 350%;
+}
+
+#Background {
+  position: absolute;
+  color: white;
+  font-family: Arial;
+  font-style: bold;
+  font-weight: normal;
+  font-variant: normal;
+  text-align: left;
+  padding: 0;
+  margin: 0 0 0 20px;
+  top: 85%;
+  font-size: 650%;
 }
