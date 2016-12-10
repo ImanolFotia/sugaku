@@ -11,7 +11,7 @@ Inventario.prototype.Init = function()
 	this.m_CostoTotal = 0;
 	this.m_CantItems = 0;
 	this.m_Items = [];
-	this.m_MaxItems = 5;
+	this.m_MaxItems = 4;
 }
 
 Inventario.prototype.AgregarItem = function(item)
