@@ -25,7 +25,7 @@ function Renderer() {
 
 		this.m_Camara = new Camara();
 
-		this.m_Camara.Init([120,18,14], [0,0,1], 75, 16/9);
+		this.m_Camara.Init([120,18,14], [0,0,1], 60, 16/9);
 
 		this.m_Articulos = [];
 
@@ -39,7 +39,7 @@ function Renderer() {
 
 		this.m_Articulos[i] = new Articulo();
 
-		var itemIndex = randi(0, 6);
+		var itemIndex = randi(0, 25);
 
 		this.m_Articulos[i].Init(	
 									TiposArticulos[itemIndex][0], 
@@ -90,11 +90,13 @@ Renderer.prototype.DibujarArticulos = function()
 Renderer.prototype.Pick = function()
 {
 	var index = this.m_Picking.Pick(this.m_Camara.getPosicion(), this.m_Camara.getDireccion());
-	if(-1 != index && this.m_Inventario.m_CantItems <= this.m_Inventario.m_MaxItems){
+	if(-1 != index && this.m_Inventario.m_CantItems <= this.m_Inventario.m_MaxItems && this.m_Articulos[index].m_Taken == 0){
 	console.log(this.m_Articulos[index].getTipo());
 	this.m_Articulos[index].m_Taken = 1;
 	this.m_Inventario.AgregarItem(this.m_Articulos[index]);
 }
+else
+	console.log("Inventario Lleno");
 }
 
 function Render(now)

@@ -31,3 +31,29 @@ TiposArticulos[2] = ["Resources/Sprites/Caramelos 256.png", "Caramelos", 3];
 TiposArticulos[3] = ["Resources/Sprites/leche.png", "Leche", 15];
 TiposArticulos[4] = ["Resources/Sprites/Chupetines.png", "Chupetines", 2];
 TiposArticulos[5] = ["Resources/Sprites/Paleta.png", "Paleta", 3];
+
+
+TiposArticulos[6] = ["Resources/Sprites/Banana.png", "Banana", 10];
+TiposArticulos[7] = ["Resources/Sprites/Anana.png", "Anana", 1];
+TiposArticulos[8] = ["Resources/Sprites/Calabaza.png", "Calabaza", 3];
+TiposArticulos[9] = ["Resources/Sprites/Carne.png", "Carne", 15];
+TiposArticulos[10] = ["Resources/Sprites/Choclo.png", "Choclo", 2];
+TiposArticulos[11] = ["Resources/Sprites/Galletitas.png", "Galletitas", 3];
+
+
+TiposArticulos[12] = ["Resources/Sprites/Gaseosa.png", "Gaseosa", 10];
+TiposArticulos[13] = ["Resources/Sprites/Helado.png", "Helado", 1];
+TiposArticulos[14] = ["Resources/Sprites/JugoManzana.png", "JugoManzana", 3];
+TiposArticulos[15] = ["Resources/Sprites/JugoNaranja.png", "JugoNaranja", 15];
+TiposArticulos[16] = ["Resources/Sprites/Manzana.png", "Manzana", 2];
+TiposArticulos[17] = ["Resources/Sprites/Naranja.png", "Naranja", 3];
+
+TiposArticulos[18] = ["Resources/Sprites/Pan.png", "Pan", 10];
+TiposArticulos[19] = ["Resources/Sprites/Papas.png", "Papas", 1];
+TiposArticulos[20] = ["Resources/Sprites/Pavo.png", "Pavo", 3];
+TiposArticulos[21] = ["Resources/Sprites/Pescado.png", "Pescado", 15];
+TiposArticulos[22] = ["Resources/Sprites/Sandia.png", "Sandia", 2];
+TiposArticulos[23] = ["Resources/Sprites/Tomate.png", "Tomate", 3];
+
+TiposArticulos[24] = ["Resources/Sprites/Uvas.png", "Uvas", 2];
+TiposArticulos[25] = ["Resources/Sprites/Zanahorias.png", "Zanahorias", 3];
