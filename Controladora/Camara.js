@@ -222,8 +222,8 @@ Camara.prototype.Interpolar = function()
                 				0,
                 				Math.cos(this.m_VectorGiro    -       3.14*0.5)
             					];
-            console.log("Direccion: x:" + this.m_Direccion[0] + " y: " + this.m_Direccion[1] + " z: " + this.m_Direccion[2]);
-            console.log("Derecha: x:" + this.m_Derecha[0] + " y: " + this.m_Derecha[1] + " z: " + this.m_Derecha[2]);
+            //console.log("Direccion: x:" + this.m_Direccion[0] + " y: " + this.m_Direccion[1] + " z: " + this.m_Direccion[2]);
+            //console.log("Derecha: x:" + this.m_Derecha[0] + " y: " + this.m_Derecha[1] + " z: " + this.m_Derecha[2]);
 
 
 				if(Math.round(this.m_Direccion[0]) == b && Math.round(this.m_Direccion[2]) == c)
@@ -241,8 +241,8 @@ Camara.prototype.Interpolar = function()
                 				0,
                 				Math.cos(this.m_VectorGiro    -       3.14*0.5) 
             					];
-            console.log("Direccion: x:" + this.m_Direccion[0] + " y: " + this.m_Direccion[1] + " z: " + this.m_Direccion[2]);
-            console.log("Derecha: x:" + this.m_Derecha[0] + " y: " + this.m_Derecha[1] + " z: " + this.m_Derecha[2]);
+            //console.log("Direccion: x:" + this.m_Direccion[0] + " y: " + this.m_Direccion[1] + " z: " + this.m_Direccion[2]);
+            //console.log("Derecha: x:" + this.m_Derecha[0] + " y: " + this.m_Derecha[1] + " z: " + this.m_Derecha[2]);
 
 			if(Math.round(this.m_Direccion[0]) == b && Math.round(this.m_Direccion[2]) == c)
 				this.m_GiroDerecha = false;
@@ -258,6 +258,7 @@ Camara.prototype.Interpolar = function()
 			}else{*/
 				this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
 				this.m_VectorMovimientoAnterior = this.m_VectorMovimiento;
+            console.log("m_Posicion: x:" + this.m_Posicion[0] + " y: " + this.m_Posicion[1] + " z: " + this.m_Posicion[2]);
 			//}
 
 		}
@@ -270,6 +271,7 @@ Camara.prototype.Interpolar = function()
 				this.m_Retrocede = false;
 			}else{*/
 				this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
+            console.log("m_Posicion: x:" + this.m_Posicion[0] + " y: " + this.m_Posicion[1] + " z: " + this.m_Posicion[2]);
 				//this.m_VectorMovimientoAnterior = this.m_VectorMovimiento;
 			//}
 		}

@@ -20,11 +20,12 @@ function Articulo()
 	this.m_BinormalOffset;
 }
 
-Articulo.prototype.Init = function(pos, tipo, precio)
+Articulo.prototype.Init = function(textura, pos, tipo, precio)
 {
 	this.m_Posicion = pos;
 	this.m_Tipo = tipo;
 	this.m_Precio = precio;
+    this.m_Textura = loadTexture(textura);
 
 }
 
@@ -78,10 +79,10 @@ Articulo.prototype.InitVAO = function()
 
 }
 
-Articulo.prototype.Render = function(program, texture)
+Articulo.prototype.Render = function(program)
 {
     GL.activeTexture(GL.TEXTURE0);
-    GL.bindTexture(GL.TEXTURE_2D, texture);
+    GL.bindTexture(GL.TEXTURE_2D, this.m_Textura);
     GL.uniform1i(GL.getUniformLocation(program, "sampler"),0);
 
     GL.bindBuffer(GL.ARRAY_BUFFER, this.m_VBOArticulo);

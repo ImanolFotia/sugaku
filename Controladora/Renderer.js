@@ -3,7 +3,7 @@ function Renderer() {
 		this.m_Shader = new Shader();
 		this.m_Shader.initShaders(fragment, vertex);
 
-		this.m_CantidadArticulos = 3;
+		this.m_CantidadArticulos = 18;
 
 		this.m_SpriteShader = new Shader();
 		this.m_SpriteShader.initShaders(spritef, spritev);
@@ -18,7 +18,7 @@ function Renderer() {
 		this.texture3 = loadTexture("Resources/Texturas/box4.jpg");
 
 
-		this.leche = loadTexture("Resources/Sprites/leche.png");
+		this.leche = loadTexture("Resources/Sprites/Botella de Agua clone.png");
 
 		this.m_Model = new Modelo();
 		this.m_Model.cargarModelo(Positions, Normals, TexCoords, Binormals, Tangents, Indices);
@@ -27,12 +27,13 @@ function Renderer() {
 
 		this.m_Camara.Init([120,18,14], [0,0,1], 75, 16/9);
 
-		this.m_Articulos = new Articulo();
+		this.m_Articulos = [];
 
 		for(var i = 0; i < this.m_CantidadArticulos; i++)
 		{
-		this.m_Articulos.Init([10*10,3.5*5,4.75*10], 0, 0);
-		this.m_Articulos.InitVAO();
+		this.m_Articulos[i] = new Articulo();
+		this.m_Articulos[i].Init(TiposArticulos[Math.round(((Math.sin(i)*0.5+0.5)*3))], PocisionesArticulos[i], 0, 0);
+		this.m_Articulos[i].InitVAO();
 		}
 };
 
@@ -57,13 +58,13 @@ Renderer.prototype.DibujarArticulos = function()
 		GL.uniformMatrix4fv(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "transInvModel"), GL.FALSE,transInvModel);
 		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "viewPos"),this.m_Camara.getPosicion()[0], this.m_Camara.getPosicion()[1],this.m_Camara.getPosicion()[2]);
 		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "viewDir"),this.m_Camara.getObjetive()[0], this.m_Camara.getObjetive()[1],this.m_Camara.getObjetive()[2]);
-		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "SpritePos"), this.m_Articulos.m_Posicion[0] - (i*19.5),
-																							this.m_Articulos.m_Posicion[1],
-																							this.m_Articulos.m_Posicion[2]);
+		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "SpritePos"), this.m_Articulos[i].m_Posicion[0],
+																							this.m_Articulos[i].m_Posicion[1],
+																							this.m_Articulos[i].m_Posicion[2]);
 
 		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "CameraRight"),this.m_Camara.m_Derecha[0], this.m_Camara.m_Derecha[1],this.m_Camara.m_Derecha[2]);
 
-		this.m_Articulos.Render(this.m_SpriteShader.getshaderID(), this.leche);
+		this.m_Articulos[i].Render(this.m_SpriteShader.getshaderID(), this.leche);
 	}
 }
 
