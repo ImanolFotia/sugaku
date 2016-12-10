@@ -29,12 +29,29 @@ function Renderer() {
 
 		this.m_Articulos = [];
 
+		this.m_Inventario = new Inventario();
+
+		this.m_Picking = new Picking();
+
 		for(var i = 0; i < this.m_CantidadArticulos; i++)
 		{
+
 		this.m_Articulos[i] = new Articulo();
-		this.m_Articulos[i].Init(TiposArticulos[Math.floor((Math.random() * 6) + 0)], PocisionesArticulos[i], 0, 0);
+
+		var itemIndex = randi(0, 6);
+
+		this.m_Articulos[i].Init(	
+									TiposArticulos[itemIndex][0], 
+								 	PocisionesArticulos[i], 
+								 	TiposArticulos[itemIndex][1], 
+								 	TiposArticulos[itemIndex][2]
+								);
+
 		this.m_Articulos[i].InitVAO();
+
 		}
+
+		this.m_Picking.Init(this.m_Articulos);
 };
 
 Renderer.prototype.DibujarArticulos = function()
@@ -64,7 +81,7 @@ Renderer.prototype.DibujarArticulos = function()
 
 		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "CameraRight"),this.m_Camara.m_Derecha[0], this.m_Camara.m_Derecha[1],this.m_Camara.m_Derecha[2]);
 
-		this.m_Articulos[i].Render(this.m_SpriteShader.getshaderID(), this.leche);
+		this.m_Articulos[i].Render(this.m_SpriteShader.getshaderID());
 	}
 }
 

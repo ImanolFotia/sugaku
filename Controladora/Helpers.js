@@ -75,5 +75,13 @@ var mouse =
 	}
 }
 
+function randi(min, max)
+{
+	return Math.floor((Math.random() * max) + min);
+}
 
+function randf(min, max)
+{
+	return (Math.random() * max) + min;
+}
 
