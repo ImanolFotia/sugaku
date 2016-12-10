@@ -258,7 +258,7 @@ Camara.prototype.Interpolar = function()
 			}else{*/
 				this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
 				this.m_VectorMovimientoAnterior = this.m_VectorMovimiento;
-            console.log("m_Posicion: x:" + this.m_Posicion[0] + " y: " + this.m_Posicion[1] + " z: " + this.m_Posicion[2]);
+            //console.log("m_Posicion: x:" + this.m_Posicion[0] + " y: " + this.m_Posicion[1] + " z: " + this.m_Posicion[2]);
 			//}
 
 		}
@@ -271,7 +271,7 @@ Camara.prototype.Interpolar = function()
 				this.m_Retrocede = false;
 			}else{*/
 				this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
-            console.log("m_Posicion: x:" + this.m_Posicion[0] + " y: " + this.m_Posicion[1] + " z: " + this.m_Posicion[2]);
+            //console.log("m_Posicion: x:" + this.m_Posicion[0] + " y: " + this.m_Posicion[1] + " z: " + this.m_Posicion[2]);
 				//this.m_VectorMovimientoAnterior = this.m_VectorMovimiento;
 			//}
 		}

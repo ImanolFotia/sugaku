@@ -9,6 +9,10 @@ function sumVectors(a, b)
 	return [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
 }
 
+function clamp(num, min, max) {
+  return Math.min(Math.max(num, min), max);
+}
+
 function makeTranslation(tx, ty, tz) 
 {
   return [

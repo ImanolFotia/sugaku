@@ -30,6 +30,7 @@ function Renderer() {
 		this.m_Articulos = [];
 
 		this.m_Inventario = new Inventario();
+		this.m_Inventario.Init();
 
 		this.m_Picking = new Picking();
 
@@ -81,8 +82,19 @@ Renderer.prototype.DibujarArticulos = function()
 
 		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "CameraRight"),this.m_Camara.m_Derecha[0], this.m_Camara.m_Derecha[1],this.m_Camara.m_Derecha[2]);
 
-		this.m_Articulos[i].Render(this.m_SpriteShader.getshaderID());
+		if(!this.m_Articulos[i].m_Taken)
+		this.m_Articulos[i].Render(this.m_SpriteShader.getshaderID(), this);
 	}
+}
+
+Renderer.prototype.Pick = function()
+{
+	var index = this.m_Picking.Pick(this.m_Camara.getPosicion(), this.m_Camara.getDireccion());
+	if(-1 != index && this.m_Inventario.m_CantItems <= this.m_Inventario.m_MaxItems){
+	console.log(this.m_Articulos[index].getTipo());
+	this.m_Articulos[index].m_Taken = 1;
+	this.m_Inventario.AgregarItem(this.m_Articulos[index]);
+}
 }
 
 function Render(now)

@@ -4,6 +4,7 @@ function Articulo()
 	this.m_Tipo;
 	this.m_Precio;
 	this.m_Textura;
+	this.m_Taken;
 
 	this.m_VBOArticulo;
 
@@ -26,6 +27,7 @@ Articulo.prototype.Init = function(textura, pos, tipo, precio)
 	this.m_Tipo = tipo;
 	this.m_Precio = precio;
     this.m_Textura = loadTexture(textura);
+    this.m_Taken = 0;
 
 }
 

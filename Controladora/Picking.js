@@ -10,25 +10,27 @@ Picking.prototype.Init = function(items)
 
 Picking.prototype.Pick = function(playerPos, playerDir)
 {
-	var item1 = [100, 0], item2 = [100, 0];
-	for(var i = 0; i < Items.length(); i++)
+	var Closer = [];
+	for(var i = 0; i < this.Items.length; i++)
 	{
-		var tmpPos = DistanciaAItem(playerpos, items[i].getPosicion());
-		if(item1 >= tmpPos) item1 = [tmpPos, i];
-		if(item2 >= item1) item2 = [item1];
+		Closer[i] = [this.DistanciaAItem(playerPos, this.Items[i].getPosicion()), i];
 	}
 
-	var facing = Math.max(Math.clamp(dot(playerDir, normalizar(sumVectors(playerpos, item1[0])))), 0.0);
-	var facing2 = Math.max(Math.clamp(dot(playerDir, normalizar(sumVectors(playerpos, item2[0])))), 0.0);
+	
+	Closer.sort(function(a, b){return a[0]-b[0]});
 
-	if(facing > 0.5)
-		return item1[1];
-	else
-		return item2[1];
+	var facing = Math.max(dot(playerDir, normalizar(subtractVectors(playerPos, this.Items[Closer[0][1]].getPosicion()))), 0.0);
+	var facing2 = Math.max(dot(playerDir, normalizar(subtractVectors(playerPos, this.Items[Closer[1][1]].getPosicion()))), 0.0);
+
+	if(facing > 0.0 && facing2 > 0.0) return Closer[0][1];
+
+	if(facing >= 0.7) return Closer[1][1];
+	else if(facing2 >= 0.7) return Closer[0][1];
+	else return -1;
 
 }
 
 Picking.prototype.DistanciaAItem = function(playerpos, itempos)
 {
-	return length(playerpos + itempos);
+	return length(subtractVectors(playerpos, itempos));
 }
