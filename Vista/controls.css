@@ -10,6 +10,7 @@ top:80.5%;
 left: 14.5%;
 z-index: 2;
 color: red;
+visibility: hidden;
 }
 
 #controlup
@@ -31,6 +32,7 @@ position: absolute;
 top:77%;
 left: 76%;
 z-index: 2;
+visibility: hidden;
 }
 
 #controlleft
@@ -52,6 +54,7 @@ position: absolute;
 top:82%;
 left: 71%;
 z-index: 2;
+visibility: hidden;
 }
 
 #controlright
@@ -73,6 +76,7 @@ position: absolute;
 top:82%;
 left: 81%;/*68*/
 z-index: 2;
+visibility: hidden;
 }
 
 #controldown
@@ -94,6 +98,7 @@ position: absolute;
 top:87%;/*68*/
 left: 76%;
 z-index: 2;
+visibility: hidden;
 }
 
 #controltake
@@ -115,6 +120,7 @@ position: absolute;
 top:80.5%;
 left: 47.75%;
 z-index: 2;
+visibility: hidden;
 }
 
 #store:hover

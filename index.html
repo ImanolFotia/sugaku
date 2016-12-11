@@ -39,6 +39,7 @@
 			<script src="Controladora/Picking.js"> </script>
 			<script src="Controladora/Inventario.js"> </script>
 			<script src="Controladora/Menu.js"> </script>
+			<script src="Controladora/Unhide.js"> </script>
 			<!-- VISTA -->
 			<div id="Back">
 			</div>
@@ -94,7 +95,6 @@
 			<button id="controldown" type="button" onclick="plop.Play();renderer.m_Camara.Retroceder();">v</button>
 			<button id="controltake" type="button" onclick="plop.Play();renderer.Pick();">Tomar</button>
 			<i id="store" class="fa fa-shopping-cart fa-inverse fa-3x" onclick="renderer.m_Cart.Tienda();"></i>
-
 			<!-- Modelos -->
 			<script src="Resources/Geometria/escena.js"> </script>
 			<!-- Shaders -->
@@ -103,6 +103,7 @@
 			<script src="Resources/Shaders/spritev.js"> </script>
 			<script src="Resources/Shaders/spritef.js"> </script>
 			<!-- Control de gráficos -->
+			<script>Unhide();</script>
 			<div id=arrows>
 				<!--
 				<br>

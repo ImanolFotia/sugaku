@@ -11,6 +11,7 @@ text-shadow:   2px 2px 0 #000;
 top:10%;
 left: 89.5%;
 z-index: 2;
+visibility: hidden;
 }
 
 #menuunmute
@@ -26,6 +27,7 @@ text-shadow:   2px 2px 0 #000;
 top:10%;
 left: 89.5%;
 z-index: -1;
+visibility: hidden;
 }
 
 #menumute:hover
@@ -78,6 +80,7 @@ position: absolute;
 top:25%;
 left: 89.5%;
 z-index: 2;
+visibility: hidden;
 }
 
 #menuabout
@@ -100,6 +103,7 @@ position: absolute;
 top:44.5%;
 left: 89.5%;
 z-index: 2;
+visibility: hidden;
 }
 
 #menuinstrucciones:hover
@@ -165,6 +169,7 @@ text-shadow:   2px 2px 0 #000;
 left: 47.75%;
 top:30%;
 z-index: -1;
+visibility: hidden;
 }
 
 #Acerca
@@ -186,4 +191,5 @@ text-shadow:   2px 2px 0 #000;
 left: 47.75%;
 top:30%;
 z-index: -1;
+visibility: hidden;
 }

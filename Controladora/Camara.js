@@ -308,12 +308,8 @@ Camara.prototype.PollEvents = function()
 	document.onkeydown = keyboard.press;
 	document.onkeyup = keyboard.release;
 
-	if(noclip)
-		this.ComputarDireccion();
-	else
-		this.Interpolar();
-
-
+	if(noclip){
+		this.ComputarDireccion();	
 	if(keyboard.pressed == "KeyW")
 		this.MoverAdelante();
 	if(keyboard.pressed == "KeyS")
@@ -322,6 +318,12 @@ Camara.prototype.PollEvents = function()
 		this.MoverIzquierda();
 	if(keyboard.pressed == "KeyD")
 		this.MoverDerecha();
+	}
+	else
+		this.Interpolar();
+
+
+
 
 	//console.log(mouse.x);
 
