@@ -34,7 +34,10 @@ Sound.prototype.Init = function(id, name, format, loop, velocity, volume)
 
 Sound.prototype.Play = function()
 {
-    this.audio.play();
+	if(audiomute == 0){
+		this.audio.play();	
+	}
+    
 }
 
 Sound.prototype.Pause = function()

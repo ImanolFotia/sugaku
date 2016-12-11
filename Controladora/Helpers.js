@@ -85,3 +85,10 @@ function randf(min, max)
 	return (Math.random() * max) + min;
 }
 
+function ChequearPrecios(correcto, selccionado)
+{
+	if(correcto == selccionado)
+		return true;
+	return false;
+}
+

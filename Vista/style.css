@@ -9,6 +9,15 @@
   z-index: 1;
 }
 
+#Back{
+  z-index: -1;
+  color: black;
+  width: 72%;
+  height: 72%;
+  padding: 0;
+  margin: 0;
+}
+
 body {
 	margin: 0;
 	padding: 0;

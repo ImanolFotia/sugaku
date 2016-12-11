@@ -161,8 +161,9 @@ Camara.prototype.Retroceder = function()
 
 }
 
-Camara.prototype.IrTienda = function()
+Camara.prototype.IrTienda = function(items)
 {
+	if(items >= 5){
 	var b = Math.round(Math.sin(this.m_VectorGiro));
 	var c = Math.round(Math.cos(this.m_VectorGiro));
 	this.m_VectorMovimiento[0] = 15;
@@ -173,6 +174,9 @@ Camara.prototype.IrTienda = function()
 
     this.m_Up = [0,1,0];
 
+    return true;
+}
+return false;
 }
 
 Camara.prototype.ComputarDireccion = function()
@@ -208,7 +212,7 @@ Camara.prototype.Interpolar = function()
 			this.m_Posicion = lerp(this.m_Posicion, [15, 18, 35], 0.05);
 			this.m_Direccion = [0,0,-1];
 
-			console.log(this.m_Posicion[1], this.m_Posicion[2], this.m_Direccion[0], this.m_Direccion[2]);
+			//console.log(this.m_Posicion[1], this.m_Posicion[2], this.m_Direccion[0], this.m_Direccion[2]);
 		}
 		else{
 		if(this.m_GiroDerecha)

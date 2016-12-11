@@ -20,7 +20,7 @@ Inventario.prototype.AgregarItem = function(item)
 	{
 		this.m_CantItems+=1;
 		this.m_Items[this.m_CantItems - 1] = item;
-		this.m_CostoTotal += item[1];
+		this.m_CostoTotal += item.getPrecio();
 	}
 
 }
@@ -31,4 +31,9 @@ Inventario.prototype.getPrecioItem = function(index)
 	{
 		return this.m_Items[index];
 	}
+}
+
+Inventario.prototype.getItems = function()
+{
+	return this.m_Items;
 }

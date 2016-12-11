@@ -1,39 +1,161 @@
-#cart {
-	position: relative;
-	top: 90%;
-	left: 90%;
+#Cart 
+{
+position: absolute;
+background:    #044e91;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 20px;
+text-align:    left;
+text-shadow:   2px 2px 0 #000;
+left: 30%;
+top:7.5%;
+z-index: -2;
 }
 
-table {
-	text-align:    center;
-	background-color: white;
-	position: absolute;
-	height: 40%;
-	width: 40%;
-	top:8%;
-	left: 30%;
-	z-index: -1;
+#ganaste
+{
+  font:          normal 700 48px/1 "Calibri", sans-serif;
 }
 
-tablehh {
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 7;
-  -moz-border-radius: 7;
-  border-radius: 7px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 30px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-
+#precio1
+{
+background:    #044e91;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
 }
-th, td, tr {
-	border: 1px white;
- 	width: 2px;
- 	height: 2px;
+
+#precio1:hover
+{
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+}
+
+#precio2
+{
+background:    #044e91;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+}
+
+#precio2:hover
+{
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+}
+
+#precio3
+{
+background:    #044e91;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+}
+
+#precio3:hover
+{
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+}
+
+#precio4
+{
+background:    #044e91;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+}
+
+#precio4:hover
+{
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
 }

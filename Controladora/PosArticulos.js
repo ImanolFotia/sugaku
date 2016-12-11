@@ -43,8 +43,8 @@ TiposArticulos[11] = ["Resources/Sprites/Galletitas.png", "Galletitas", 3];
 
 TiposArticulos[12] = ["Resources/Sprites/Gaseosa.png", "Gaseosa", 10];
 TiposArticulos[13] = ["Resources/Sprites/Helado.png", "Helado", 1];
-TiposArticulos[14] = ["Resources/Sprites/JugoManzana.png", "JugoManzana", 3];
-TiposArticulos[15] = ["Resources/Sprites/JugoNaranja.png", "JugoNaranja", 15];
+TiposArticulos[14] = ["Resources/Sprites/JugoManzana.png", "Jugo Manzana", 3];
+TiposArticulos[15] = ["Resources/Sprites/JugoNaranja.png", "Jugo Naranja", 15];
 TiposArticulos[16] = ["Resources/Sprites/Manzana.png", "Manzana", 2];
 TiposArticulos[17] = ["Resources/Sprites/Naranja.png", "Naranja", 3];
 

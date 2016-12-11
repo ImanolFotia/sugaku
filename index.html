@@ -12,6 +12,7 @@
   		<link rel="stylesheet" href="Vista/style.css">
   		<link rel="stylesheet" href="Vista/canvas.css">
   		<link rel="stylesheet" type="text/css" href="Vista/controls.css">
+  		<link rel="stylesheet" type="text/css" href="Vista/menu.css">
   		<link rel="stylesheet" type="text/css" href="Vista/cart.css">
   		<link rel="stylesheet" href="Resources/font-awesome-4.6.3/css/font-awesome.min.css">
 		</head>
@@ -37,7 +38,10 @@
 			<script src="Controladora/PosArticulos.js"> </script>
 			<script src="Controladora/Picking.js"> </script>
 			<script src="Controladora/Inventario.js"> </script>
+			<script src="Controladora/Menu.js"> </script>
 			<!-- VISTA -->
+			<div id="Back">
+			</div>
 			<h1 id="Titulo1">S</h1>
 			<h1 id="Titulo2">u</h1>
 			<h1 id="Titulo3">g</h1>
@@ -47,12 +51,38 @@
 			<div id="Background">
 				&#23398;
 			</div>
+			<!-- Menú -->
+			<i id="menuunmute" class="fa fa-volume-off fa-2x" onclick="audioChangeMute();background.Play();console.log(audiomute);"></i>
+			<i id="menumute" class="fa fa-volume-up fa-2x" onclick="audioChangeMute();background.Play();console.log(audiomute);"></i>
+			<button id="menuinstrucciones" type="button" onclick="mostrarInstrucciones();">&#191;C&#243;mo juego?</button>
+			<button id="menuabout" type="button" onclick="mostrarAcerca();">Acerca</button>
+			<div id="Instrucciones">
+				<p>peee</p>
+				<p>qw</p>
+				<p>qwd</p>
+				<p>qw</p>
+				<p>wqd</p>
+			</div>
+			<div id="Acerca">
+				<p>somos</p>
+				<p>pepe</p>
+				<p>fuentes</p>
+				<p>hola</p>
+				<p>ke tal?</p>
+			</div>
 			<!-- Cart -->
 			<div id="Cart">
-				<table border="0" id="TableCart">
-					<tr>
-					</tr>
-				</table>
+				<p id="item1"></p>
+				<p id="item2"></p>
+				<p id="item3"></p>
+				<p id="item4"></p>
+				<p id="item5"></p>
+				<p id="total"></p>
+				<p id="ganaste"></p>
+				<button id="precio1" type="button" onclick="renderer.m_Cart.CheckPrecios(0);"></button>
+				<button id="precio2" type="button" onclick="renderer.m_Cart.CheckPrecios(1);"></button>	
+				<button id="precio3" type="button" onclick="renderer.m_Cart.CheckPrecios(2);"></button>
+				<button id="precio4" type="button" onclick="renderer.m_Cart.CheckPrecios(3);"></button>
 			</div>
 			<!-- Canvas -->
 			<script src="Vista/Resize.js"></script>
@@ -63,7 +93,8 @@
 			<button id="controlright" type="button" onclick="plop.Play();renderer.m_Camara.GirarDerecha();">></button>
 			<button id="controldown" type="button" onclick="plop.Play();renderer.m_Camara.Retroceder();">v</button>
 			<button id="controltake" type="button" onclick="plop.Play();renderer.Pick();">Tomar</button>
-			<i id="store" class="fa fa-shopping-cart fa-inverse fa-3x" onclick="renderer.m_Camara.IrTienda();"></i>
+			<i id="store" class="fa fa-shopping-cart fa-inverse fa-3x" onclick="renderer.m_Cart.Tienda();"></i>
+
 			<!-- Modelos -->
 			<script src="Resources/Geometria/escena.js"> </script>
 			<!-- Shaders -->
