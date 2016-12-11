@@ -100,7 +100,6 @@ Articulo.prototype.Render = function(program)
     GL.vertexAttribPointer(4, 3, GL.FLOAT, false, 0, m_TangentOffset);
     GL.enableVertexAttribArray(4);
 
-
     GL.drawArrays(GL.TRIANGLE_STRIP, 0, 4);
 }
 
