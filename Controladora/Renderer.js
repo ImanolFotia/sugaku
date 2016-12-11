@@ -29,6 +29,8 @@ function Renderer() {
 
 		this.m_Articulos = [];
 
+		this.m_Cart = new Cart();
+
 		this.m_Inventario = new Inventario();
 		this.m_Inventario.Init();
 
@@ -94,9 +96,27 @@ Renderer.prototype.Pick = function()
 	console.log(this.m_Articulos[index].getTipo());
 	this.m_Articulos[index].m_Taken = 1;
 	this.m_Inventario.AgregarItem(this.m_Articulos[index]);
+	if(this.m_Inventario.m_CantItems == 0)
+	{
+		document.getElementById("store").style.color = 'red';
+	}
+	if(this.m_Inventario.m_CantItems == 1 || this.m_Inventario.m_CantItems == 2 || this.m_Inventario.m_CantItems == 3 || this.m_Inventario.m_CantItems == 4)
+	{
+		document.getElementById("store").style.color = 'yellow';
+	}
+	if(this.m_Inventario.m_CantItems == 5)
+	{
+		document.getElementById("store").style.color = 'green';
+	}
+
 }
 else
 	console.log("Inventario Lleno");
+}
+
+Renderer.prototype.IrTienda = function()
+{
+	this.m_Cart.Tienda(this.m_Camara, this.m_Inventario);
 }
 
 function Render(now)

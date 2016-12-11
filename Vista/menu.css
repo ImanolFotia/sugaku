@@ -1,19 +1,66 @@
-#store
+#menumute
 {
+width: 72px;
+position: absolute;
 background:    #044e91;
+color: white;
 border-radius: 5px;
 padding:       10px 20px;
 text-align:    center;
 text-shadow:   2px 2px 0 #000;
-position: absolute;
-top:80.5%;
-left: 14.5%;
+top:10%;
+left: 89.5%;
 z-index: 2;
-color: red;
 }
 
-#controlup
+#menuunmute
 {
+width: 72px;
+position: absolute;
+background:    #044e91;
+color: white;
+border-radius: 5px;
+padding:       10px 20px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+top:10%;
+left: 89.5%;
+z-index: -1;
+}
+
+#menumute:hover
+{
+width: 72px;
+background:    #3084d0;
+color: white;
+position: absolute;
+border-radius: 5px;
+padding:       10px 20px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+top:10%;
+left: 89.5%;
+z-index: 2;
+}
+
+#menuunmute:hover
+{
+width: 72px;
+background:    #3084d0;
+color: white;
+position: absolute;
+border-radius: 5px;
+padding:       10px 20px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+top:10%;
+left: 89.5%;
+z-index: -1;
+}
+
+#menuinstrucciones
+{
+width: 110px;
 background:    #044e91;
 border:        0px solid #569;
 border-radius: 5px;
@@ -24,17 +71,18 @@ font:          normal 700 24px/1 "Calibri", sans-serif;
 margin-top: 3px;
 margin-bottom: 3px;
 margin-left: 3px;
-margin-right: 3px;
+margin-right: 20px;
 text-align:    center;
 text-shadow:   2px 2px 0 #000;
 position: absolute;
-top:77%;
-left: 76%;
+top:25%;
+left: 89.5%;
 z-index: 2;
 }
 
-#controlleft
+#menuabout
 {
+width: 110px;
 background:    #044e91;
 border:        0px solid #569;
 border-radius: 5px;
@@ -45,17 +93,62 @@ font:          normal 700 24px/1 "Calibri", sans-serif;
 margin-top: 3px;
 margin-bottom: 3px;
 margin-left: 3px;
-margin-right: 3px;
+margin-right: 20px;
 text-align:    center;
 text-shadow:   2px 2px 0 #000;
 position: absolute;
-top:82%;
-left: 71%;
+top:44.5%;
+left: 89.5%;
 z-index: 2;
 }
 
-#controlright
+#menuinstrucciones:hover
 {
+width: 110px;
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 20px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+position: absolute;
+top:25%;
+left: 89.5%;
+z-index: 2;
+}
+
+#menuabout:hover
+{
+width: 110px;
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 20px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+position: absolute;
+top:44.5%;
+left: 89.5%;
+z-index: 2;
+}
+
+#Instrucciones
+{
+position: absolute;
 background:    #044e91;
 border:        0px solid #569;
 border-radius: 5px;
@@ -66,73 +159,18 @@ font:          normal 700 24px/1 "Calibri", sans-serif;
 margin-top: 3px;
 margin-bottom: 3px;
 margin-left: 3px;
-margin-right: 3px;
+margin-right: 20px;
 text-align:    center;
 text-shadow:   2px 2px 0 #000;
-position: absolute;
-top:82%;
-left: 81%;/*68*/
-z-index: 2;
-}
-
-#controldown
-{
-background:    #044e91;
-border:        0px solid #569;
-border-radius: 5px;
-color:         #fff;
-display:       inline-block;
-padding:       10px 20px;
-font:          normal 700 24px/1 "Calibri", sans-serif;
-margin-top: 3px;
-margin-bottom: 3px;
-margin-left: 3px;
-margin-right: 3px;
-text-align:    center;
-text-shadow:   2px 2px 0 #000;
-position: absolute;
-top:87%;/*68*/
-left: 76%;
-z-index: 2;
-}
-
-#controltake
-{
-background:    #044e91;
-border:        0px solid #569;
-border-radius: 5px;
-color:         #fff;
-display:       inline-block;
-padding:       10px 20px;
-font:          normal 700 24px/1 "Calibri", sans-serif;
-margin-top: 3px;
-margin-bottom: 3px;
-margin-left: 3px;
-margin-right: 3px;
-text-align:    center;
-text-shadow:   2px 2px 0 #000;
-position: absolute;
-top:80.5%;
 left: 47.75%;
-z-index: 2;
+top:30%;
+z-index: -1;
 }
 
-#store:hover
+#Acerca
 {
-background:    #3084d0;
-border-radius: 5px;
-padding:       10px 20px;
-text-align:    center;
-text-shadow:   2px 2px 0 #000;
 position: absolute;
-top:80.5%;
-left: 14.5%;
-z-index: 2;
-}
-
-#controlup:hover
-{
-background:    #3084d0;
+background:    #044e91;
 border:        0px solid #569;
 border-radius: 5px;
 color:         #fff;
@@ -142,95 +180,10 @@ font:          normal 700 24px/1 "Calibri", sans-serif;
 margin-top: 3px;
 margin-bottom: 3px;
 margin-left: 3px;
-margin-right: 3px;
+margin-right: 20px;
 text-align:    center;
 text-shadow:   2px 2px 0 #000;
-position: absolute;
-top:77%;
-left: 76%;
-z-index: 2;
-}
-
-#controlleft:hover
-{
-background:    #3084d0;
-border:        0px solid #569;
-border-radius: 5px;
-color:         #fff;
-display:       inline-block;
-padding:       10px 20px;
-font:          normal 700 24px/1 "Calibri", sans-serif;
-margin-top: 3px;
-margin-bottom: 3px;
-margin-left: 3px;
-margin-right: 3px;
-text-align:    center;
-text-shadow:   2px 2px 0 #000;
-position: absolute;
-top:82%;
-left: 71%;
-z-index: 2;
-}
-
-#controlright:hover
-{
-background:    #3084d0;
-border:        0px solid #569;
-border-radius: 5px;
-color:         #fff;
-display:       inline-block;
-padding:       10px 20px;
-font:          normal 700 24px/1 "Calibri", sans-serif;
-margin-top: 3px;
-margin-bottom: 3px;
-margin-left: 3px;
-margin-right: 3px;
-text-align:    center;
-text-shadow:   2px 2px 0 #000;
-position: absolute;
-top:82%;
-left: 81%;
-z-index: 2;
-}
-
-#controldown:hover
-{
-background:    #3084d0;
-border:        0px solid #569;
-border-radius: 5px;
-color:         #fff;
-display:       inline-block;
-padding:       10px 20px;
-font:          normal 700 24px/1 "Calibri", sans-serif;
-margin-top: 3px;
-margin-bottom: 3px;
-margin-left: 3px;
-margin-right: 3px;
-text-align:    center;
-text-shadow:   2px 2px 0 #000;
-position: absolute;
-top:87%;
-left: 76%;
-z-index: 2;
-}
-
-#controltake:hover
-{
-background:    #3084d0;
-border:        0px solid #569;
-border-radius: 5px;
-color:         #fff;
-display:       inline-block;
-padding:       10px 20px;
-font:          normal 700 24px/1 "Calibri", sans-serif;
-margin-top: 3px;
-margin-bottom: 3px;
-margin-left: 3px;
-margin-right: 3px;
-text-align:    center;
-text-shadow:   2px 2px 0 #000;
-position: absolute;
-top:80.5%;
 left: 47.75%;
-z-index: 2;
+top:30%;
+z-index: -1;
 }
