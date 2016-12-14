@@ -40,6 +40,7 @@
 			<script src="Controladora/Inventario.js"> </script>
 			<script src="Controladora/Menu.js"> </script>
 			<script src="Controladora/Unhide.js"> </script>
+			<script src="Controladora/Facebook.js"> </script>
 			<!-- VISTA -->
 			<div id="Back">
 			</div>
@@ -89,6 +90,10 @@
 			<!-- Canvas -->
 			<script src="Vista/Resize.js"></script>
 			<canvas id="WebGL" width="848" height="480"></canvas>
+			
+			
+			<div id="fb-root"></div>
+			<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
 			<!-- Controles -->			
 			<button id="controlup" type="button" onclick="plop.Play(); renderer.m_Camara.Avanzar();">^</button>
 			<button id="controlleft" type="button" onclick="plop.Play();renderer.m_Camara.GirarIzquierda();"><</button>
@@ -122,5 +127,11 @@
 				</div>-->
 			</div>
 		</div>
+	<div
+  	class="fb-like"
+  	data-share="true"
+  	data-width="450"
+  	data-show-faces="true">
+	</div>
 	</body>
 </html>
