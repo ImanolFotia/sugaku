@@ -17,8 +17,9 @@ function Renderer() {
 		this.texture2 = loadTexture("Resources/Texturas/box3.jpg");
 		this.texture3 = loadTexture("Resources/Texturas/box4.jpg");
 
-
-		this.leche = loadTexture("Resources/Sprites/Botella de Agua clone.png");
+		this.EmpleadoDeTienda = new Sprite();
+		this.EmpleadoDeTienda.Init("Resources/Sprites/Persona.png");
+		this.EmpleadoDeTienda.InitVAO();
 
 		this.m_Model = new Modelo();
 		this.m_Model.cargarModelo(Positions, Normals, TexCoords, Binormals, Tangents, Indices);
@@ -81,12 +82,37 @@ Renderer.prototype.DibujarArticulos = function()
 		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "SpritePos"), this.m_Articulos[i].m_Posicion[0],
 																							this.m_Articulos[i].m_Posicion[1],
 																							this.m_Articulos[i].m_Posicion[2]);
+		GL.uniform1f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "SpriteSize"), 2.0);
 
 		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "CameraRight"),this.m_Camara.m_Derecha[0], this.m_Camara.m_Derecha[1],this.m_Camara.m_Derecha[2]);
 
 		if(!this.m_Articulos[i].m_Taken)
-		this.m_Articulos[i].Render(this.m_SpriteShader.getshaderID(), this);
+			this.m_Articulos[i].Render(this.m_SpriteShader.getshaderID(), this);
 	}
+
+		GL.useProgram(this.m_SpriteShader.getshaderID());
+
+		var translation = makeTranslation(0, 0, 0);
+		var escala = scale(2,2,2);
+		var model = new Float32Array(16);
+		model = Identity();
+		model = matrixMultiply(model, escala);
+		var transInvModel = model;
+		transInvModel = makeInverse(transInvModel);
+		transInvModel = transpose(transInvModel);
+
+		GL.uniformMatrix4fv(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "model"), GL.FALSE,model);
+		GL.uniformMatrix4fv(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "view"), GL.FALSE,this.m_Camara.getViewMatrix());
+		GL.uniformMatrix4fv(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "perspective"), GL.FALSE,this.m_Camara.getPerspectiveMatrix());
+		GL.uniformMatrix4fv(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "transInvModel"), GL.FALSE,transInvModel);
+		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "viewPos"),this.m_Camara.getPosicion()[0], this.m_Camara.getPosicion()[1],this.m_Camara.getPosicion()[2]);
+		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "viewDir"),this.m_Camara.getObjetive()[0], this.m_Camara.getObjetive()[1],this.m_Camara.getObjetive()[2]);
+		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "SpritePos"), 20, 15, 5);
+		GL.uniform1f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "SpriteSize"), 15.0);
+
+		GL.uniform3f(GL.getUniformLocation(this.m_SpriteShader.getshaderID(), "CameraRight"),this.m_Camara.m_Derecha[0], this.m_Camara.m_Derecha[1],this.m_Camara.m_Derecha[2]);
+
+		this.EmpleadoDeTienda.Render(this.m_SpriteShader.getshaderID());
 }
 
 Renderer.prototype.Pick = function()

@@ -38,6 +38,7 @@
 			<script src="Controladora/PosArticulos.js"> </script>
 			<script src="Controladora/Picking.js"> </script>
 			<script src="Controladora/Inventario.js"> </script>
+			<script src="Controladora/Sprite.js"> </script>
 			<script src="Controladora/Menu.js"> </script>
 			<script src="Controladora/Unhide.js"> </script>
 			<script src="Controladora/Facebook.js"> </script>
