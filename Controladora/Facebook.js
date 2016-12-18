@@ -52,10 +52,10 @@
   
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api(	'/me',
-  		'GET',
-  		{"fields":"id,name,email"}, function(response) {
-      console.log('Successful login for: ' + response.name);
+    FB.api( '/me',
+      'GET',
+      {"fields":"id,name,email"}, function(response) {
+      console.log('Successful login for: ' + response.email);
       
     });
   }

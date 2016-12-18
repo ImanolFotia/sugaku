@@ -134,5 +134,14 @@
   	data-width="450"
   	data-show-faces="true">
 	</div>
+
+  	<FORM id="myForm" action="Controladora/Persistencia.php" method="get">
+	<input type="hidden" id="user" name="user" value="1">
+	<input type="hidden" id="name" name="name" value="1">
+	<input type="hidden" id="face" name="face" value="1">
+	<input type="hidden" id="sc" name="sc" value="1">
+	<input type="hidden" id="action" name="action" value="1"> 
+	<input type="submit" name="submit" value="Submit"> 
+	</FORM>
 	</body>
 </html>
