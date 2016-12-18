@@ -59,4 +59,17 @@
       
     });
   }
+
+    function getNombreyID()
+    {
+      console.log('Welcome!  Fetching your information.... ');
+      FB.api( '/me',
+      'GET',
+      {"fields":"id,name,email"}, function(response) {
+      
+  document.getElementById("tagNombre").value = response.name;
+  document.getElementById("tagFacebook").value = response.id;
+    });
+    
+    }
   

@@ -135,13 +135,14 @@
   	data-show-faces="true">
 	</div>
 
+
   	<FORM id="myForm" action="Controladora/Persistencia.php" method="get">
-	<input type="hidden" id="user" name="user" value="1">
-	<input type="hidden" id="name" name="name" value="1">
-	<input type="hidden" id="face" name="face" value="1">
-	<input type="hidden" id="sc" name="sc" value="1">
-	<input type="hidden" id="action" name="action" value="1"> 
-	<input type="submit" name="submit" value="Submit"> 
+	<input type="input" id="usuario" name="user" value="">
+	<input type="input" id="tagNombre" name="tagNombre" value="">
+	<input type="input" id="tagFacebook" name="tagFacebook" value="">
+	<input type="input" id="tagScore" name="tagScore" value="">
+	<input type="input" id="tagAction" name="tagAction" value=""> 
+	<button type="submit" name="submit" value="Submit">Enviar Datos</button>
 	</FORM>
 	</body>
 </html>

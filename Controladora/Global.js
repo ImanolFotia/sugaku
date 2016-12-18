@@ -22,10 +22,12 @@ var yrot, xrot, zrot;
 var rot = 0.0;
 var noclip = 0;
 var popup = 0;
-//declaración de audios
+//declaraci贸n de audios
 var audiomute = 0;
 var background = new Sound();
 var math = new Sound();
 var menu = new Sound();
 var plop = new Sound();
 var final = new Sound();
+
+var Puntaje, facebookID, nombre, user; 

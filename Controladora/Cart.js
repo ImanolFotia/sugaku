@@ -79,6 +79,10 @@ Cart.prototype.CheckPrecios = function(index)
 		document.getElementById("precio2").style.visibility = 'hidden';
 		document.getElementById("precio3").style.visibility = 'hidden';
 		document.getElementById("precio4").style.visibility = 'hidden';
+		
+		getNombreyID();
+		document.getElementById("tagScore").value = 1000;
+		document.getElementById("tagAction").value = 1;
 	}
 	else
 		document.getElementById("precio" + (index+1)).innerHTML = "Incorrecto";
