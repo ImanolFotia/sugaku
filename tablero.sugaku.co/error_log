@@ -1,0 +1,13 @@
+[18-Dec-2016 14:53:06 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught exception 'Exception' with message 'Unable to open database: unable to open database file' in /home/sugakuco/public_html/Tablero/index.php:60
+Stack trace:
+#0 /home/sugakuco/public_html/Tablero/index.php(60): SQLite3->__construct('/home/imanolfot...')
+#1 {main}
+  thrown in /home/sugakuco/public_html/Tablero/index.php on line 60
+[18-Dec-2016 14:57:36 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught exception 'Exception' with message 'Unable to open database: unable to open database file' in /home/sugakuco/public_html/tablero/index.php:60
+Stack trace:
+#0 /home/sugakuco/public_html/tablero/index.php(60): SQLite3->__construct('/home/imanolfot...')
+#1 {main}
+  thrown in /home/sugakuco/public_html/tablero/index.php on line 60
+[18-Dec-2016 15:01:37 America/Argentina/Buenos_Aires] PHP Fatal error:  Call to a member function fetchArray() on boolean in /home/sugakuco/public_html/tablero/index.php on line 77
+[18-Dec-2016 15:02:34 America/Argentina/Buenos_Aires] PHP Fatal error:  Call to a member function fetchArray() on boolean in /home/sugakuco/public_html/tablero/index.php on line 77
+[18-Dec-2016 15:02:41 America/Argentina/Buenos_Aires] PHP Fatal error:  Call to a member function fetchArray() on boolean in /home/sugakuco/public_html/tablero/index.php on line 77
