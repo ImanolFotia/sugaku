@@ -105,7 +105,7 @@
 						<input type="hidden" id="tagFacebook" name="tagFacebook" value="">
 						<input type="hidden" id="tagScore" name="tagScore" value="">
 						<input type="hidden" id="tagAction" name="tagAction" value=""> 
-						<button id="submit" type="submit" name="submit" value="Submit">Enviar</button>
+						<button id="submit" type="submit" name="submit" value="Submit">Enviar y jugar de nuevo</button>
 					</FORM>
 					<p id="ganaste3"></p>
 					<div id="fb-root"></div>
