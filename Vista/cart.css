@@ -20,10 +20,83 @@ z-index: -2;
 visibility: hidden;
 }
 
+#GanasteForm
+{
+visibility: hidden;
+font:          normal 700 48px/1 "Calibri", sans-serif;
+}
+
+#fb-root
+{
+visibility: hidden;
+font:          normal 700 48px/1 "Calibri", sans-serif;
+background: white;
+}
+
 #ganaste
 {
-  font:          normal 700 48px/1 "Calibri", sans-serif;
+  font:          normal 700 24px/1 "Calibri", sans-serif;
 }
+
+#ganaste2
+{
+  font:          normal 700 24px/1 "Calibri", sans-serif;
+}
+
+#submit
+{
+background:    #044e91;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+visibility: hidden;
+}
+
+#submit:hover
+{
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+}
+
+
+#submittxt
+{
+background:    #3084d0;
+border:        0px solid #569;
+border-radius: 5px;
+color:         #fff;
+display:       inline-block;
+padding:       10px 20px;
+font:          normal 700 24px/1 "Calibri", sans-serif;
+margin-top: 3px;
+margin-bottom: 3px;
+margin-left: 3px;
+margin-right: 3px;
+text-align:    center;
+text-shadow:   2px 2px 0 #000;
+visibility: hidden;
+}
+
 
 #precio1
 {

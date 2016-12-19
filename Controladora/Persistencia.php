@@ -19,39 +19,44 @@ if (mysqli_connect_errno()) {
    exit();
 }
 
-
 //Chequear si el usuario existe con nombre
 $sql = "SELECT * FROM Usuario WHERE Usuario.Nombre = '$name'";
-$res = $link->query($sql);
-echo $sql;
-echo $res->num_rows;
-if($res->num_rows === 0)
+$resn = $link->query($sql);
+
+$sql = "SELECT * FROM Usuario WHERE Usuario.Facebook = '$facebook'";
+$resf = $link->query($sql);
+
+//echo $sql;
+//echo $res->num_rows;
+if($resn->num_rows === 0 || ($resf->num_rows === 0 || $facebook === ""))
 {
 	$insertUser = "INSERT INTO Usuario(Nombre, Facebook) VALUES ('$name', '$facebook')";
 	if($link->query($insertUser) === TRUE)
 	{
-		echo "Dato Insertado";
+		//echo "Dato Insertado";
 	}
 }
 else
 {
-	echo "El usuario ya existe";
+	//echo "El usuario ya existe";
 }
 
 $IDsql = "SELECT ID FROM Usuario WHERE Usuario.Nombre = '$name'";
 $ID = $link->query($IDsql);
 $ID = $ID->fetch_array(MYSQLI_NUM);
 $ID = $ID[0];
-echo $ID;
+//echo $ID;
 $insertPuntaje = "INSERT INTO Puntaje(ID_Usuario, Puntaje) VALUES ($ID, $score)";
 	if($link->query($insertPuntaje) === TRUE)
 	{
-		echo "Dato Insertado";
+		//echo "Dato Insertado";
 	}
 	else
 	{
-		echo "Ocurrio un error";
+		//echo "Ocurrio un error";
+    		
 	}
 
-
+header("Location: http://www.sugaku.co/index.php");
+exit();
 ?>

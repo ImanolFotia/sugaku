@@ -22,7 +22,7 @@ var yrot, xrot, zrot;
 var rot = 0.0;
 var noclip = 0;
 var popup = 0;
-//declaraci贸n de audios
+//declaración de audios
 var audiomute = 0;
 var background = new Sound();
 var math = new Sound();

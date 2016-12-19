@@ -16,6 +16,16 @@
   		<link rel="stylesheet" type="text/css" href="Vista/cart.css">
   		<link rel="stylesheet" href="Resources/font-awesome-4.6.3/css/font-awesome.min.css">
 		</head>
+		
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+  		var js, fjs = d.getElementsByTagName(s)[0];
+  		if (d.getElementById(id)) return;
+  		js = d.createElement(s); js.id = id;
+  		js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8&appId=209687919439798";
+  		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>		
+		
 		<div id="Container">
 			<!-- CONTROLADORA -->
 			<!-- Scripts audio -->
@@ -71,7 +81,7 @@
 				<p>Creado por:</p>
 				<p>- Imanol Fotia</p>
 				<p>- Emiliano A. Viti</p>
-				<p>Para SAP</p>
+				<p>Para TFI</p>
 				<p>UAI</p>
 			</div>
 			<!-- Cart -->
@@ -82,19 +92,29 @@
 				<p id="item4"></p>
 				<p id="item5"></p>
 				<p id="total"></p>
-				<p id="ganaste"></p>
 				<button id="precio1" type="button" onclick="renderer.m_Cart.CheckPrecios(0);"></button>
 				<button id="precio2" type="button" onclick="renderer.m_Cart.CheckPrecios(1);"></button>	
 				<button id="precio3" type="button" onclick="renderer.m_Cart.CheckPrecios(2);"></button>
 				<button id="precio4" type="button" onclick="renderer.m_Cart.CheckPrecios(3);"></button>
+					<p id="ganaste"></p>
+					<p id="ganaste2"></p>
+					<br>
+					<FORM id="myForm" action="Controladora/Persistencia.php" method="get">
+						<input type="hidden" id="usuario" name="user" value="">
+						<input type="input" id="submittxt" name="tagNombre" value="" required>
+						<input type="hidden" id="tagFacebook" name="tagFacebook" value="">
+						<input type="hidden" id="tagScore" name="tagScore" value="">
+						<input type="hidden" id="tagAction" name="tagAction" value=""> 
+						<button id="submit" type="submit" name="submit" value="Submit">Enviar</button>
+					</FORM>
+					<p id="ganaste3"></p>
+					<div id="fb-root"></div>
+					<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false" onlogin ="checkLoginState();"></div>
+					<div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
 			</div>
 			<!-- Canvas -->
 			<script src="Vista/Resize.js"></script>
 			<canvas id="WebGL" width="848" height="480"></canvas>
-			
-			
-			<div id="fb-root"></div>
-			<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
 			<!-- Controles -->			
 			<button id="controlup" type="button" onclick="plop.Play(); renderer.m_Camara.Avanzar();">^</button>
 			<button id="controlleft" type="button" onclick="plop.Play();renderer.m_Camara.GirarIzquierda();"><</button>
@@ -128,21 +148,5 @@
 				</div>-->
 			</div>
 		</div>
-	<div
-  	class="fb-like"
-  	data-share="true"
-  	data-width="450"
-  	data-show-faces="true">
-	</div>
-
-
-  	<FORM id="myForm" action="Controladora/Persistencia.php" method="get">
-	<input type="input" id="usuario" name="user" value="">
-	<input type="input" id="tagNombre" name="tagNombre" value="">
-	<input type="input" id="tagFacebook" name="tagFacebook" value="">
-	<input type="input" id="tagScore" name="tagScore" value="">
-	<input type="input" id="tagAction" name="tagAction" value=""> 
-	<button type="submit" name="submit" value="Submit">Enviar Datos</button>
-	</FORM>
 	</body>
 </html>

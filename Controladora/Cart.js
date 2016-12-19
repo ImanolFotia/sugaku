@@ -32,7 +32,6 @@ Cart.prototype.Tienda = function()
 			
 			document.getElementById("precio" + (i+1)).innerHTML = prec[0][i];
 		}
-
 		document.getElementById("menuabout").style.visibility = 'hidden';
 		document.getElementById("menumute").style.visibility = 'hidden';
 		document.getElementById("menuunmute").style.visibility = 'hidden';
@@ -44,6 +43,7 @@ Cart.prototype.Tienda = function()
 		document.getElementById("store").style.visibility = 'hidden';
 		document.getElementById("menuinstrucciones").style.visibility = 'hidden';
 		background.Pause();
+		math.Pause();
 		menu.Play();
 	}
 }
@@ -73,13 +73,18 @@ Cart.prototype.CheckPrecios = function(index)
 	if(index == this.PosicionCorrecta)
 	{	
 		menu.Pause();
+		background.Pause();
+		math.Pause();
 		final.Play();
 		document.getElementById("ganaste").innerHTML = "Ganaste!";
+		document.getElementById("ganaste2").innerHTML = "Ingresá tu nombre:";
+		document.getElementById("ganaste3").innerHTML = "O usá facebook";
+		document.getElementById("submit").style.visibility = 'visible';		
+		document.getElementById("submittxt").style.visibility = 'visible';
 		document.getElementById("precio1").style.visibility = 'hidden';
 		document.getElementById("precio2").style.visibility = 'hidden';
 		document.getElementById("precio3").style.visibility = 'hidden';
 		document.getElementById("precio4").style.visibility = 'hidden';
-		
 		getNombreyID();
 		document.getElementById("tagScore").value = 1000;
 		document.getElementById("tagAction").value = 1;

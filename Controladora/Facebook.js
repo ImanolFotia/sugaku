@@ -38,6 +38,20 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       console.log("connected");
+    	FB.api(	'/me',
+  		'GET',
+  		{"fields":"id,name,email"}, function(response) {
+      	
+      	if(response.name === undefined)
+      		document.getElementById("submittxt").value = "";
+      	else
+		document.getElementById("submittxt").value = response.name;
+	
+	if(response.id === undefined)
+      		document.getElementById("tagFacebook").value = "";
+      	else
+		document.getElementById("tagFacebook").value = response.id;
+    });
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -52,24 +66,31 @@
   
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api( '/me',
-      'GET',
-      {"fields":"id,name,email"}, function(response) {
-      console.log('Successful login for: ' + response.email);
+    FB.api(	'/me',
+  		'GET',
+  		{"fields":"id,name,email"}, function(response) {
+      console.log('Successful login for: ' + response.id);
       
     });
+    
   }
-
+  
     function getNombreyID()
     {
-      console.log('Welcome!  Fetching your information.... ');
-      FB.api( '/me',
-      'GET',
-      {"fields":"id,name,email"}, function(response) {
-      
-  document.getElementById("tagNombre").value = response.name;
-  document.getElementById("tagFacebook").value = response.id;
+    	console.log('Welcome!  Fetching your information.... ');
+    	FB.api(	'/me',
+  		'GET',
+  		{"fields":"id,name,email"}, function(response) {
+      	
+      	if(response.name === undefined)
+      		document.getElementById("submittxt").value = "";
+      	else
+		document.getElementById("submittxt").value = response.name;
+	
+	if(response.id === undefined)
+      		document.getElementById("tagFacebook").value = "";
+      	else
+		document.getElementById("tagFacebook").value = response.id;
     });
     
     }
-  
