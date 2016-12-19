@@ -22,7 +22,7 @@ Cart.prototype.Tienda = function()
 			document.getElementById("item" + (i+1)).innerHTML = renderer.m_Inventario.m_Items[i].getTipo() + strspace +"Precio: " + renderer.m_Inventario.m_Items[i].getPrecio();
 		}
 		document.getElementById("Cart").style.zIndex = 2;
-		document.getElementById("total").innerHTML = "Cuanto es el Total?";
+		document.getElementById("total").innerHTML = "&#191;Cu&aacute;nto es el Total?";
 
 		var prec = this.GenerarPrecios();
 		this.PosicionCorrecta = prec[1];
