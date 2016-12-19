@@ -13,10 +13,88 @@
 <body link="#088A29" vlink="#088A29" alink="#088A29"> 
 
 <div id="Container">
-
 <center>
 <br><br>
-<table background=img1.jpg border="4" height="70%"   width="85%" ><tr><td> 
+<table background=img.jpg border="4" height="70%"   width="85%" ><tr><td> 
+<FORM class = "can" METHOD="POST" ACTION="pagina1.php">
+<p >Ingresar ID de usuario: <?php echo $umbral;?> </p>  <input type="text" name="umbral" placeholder=""s>
+<input type="submit" value="Actualizar"> </FORM>
+<br>
+<br>
+<center>
+<table class="top5" border="4" width="50%" bgcolor="#000" >
+<tr>
+	<th id="titulo1">Usuario ID</th>
+	<th id="titulo2">Top 5 Puntajes</th>
+</tr>
+<tr>
+	<th id="top1user"></th>
+	<th id="top1score"></th>
+</tr>
+<tr>
+	<th id="top2user"></th>
+	<th id="top2score"></th>
+</tr>
+<tr>
+	<th id="top3user"></th>
+	<th id="top3score"></th>
+</tr>
+<tr>
+	<th id="top4user"></th>
+	<th id="top4score"></th>
+</tr>
+<tr>
+	<th id="top5user"></th>
+	<th id="top5score"></th>
+</tr>
+</table>
+</center>
+<br>
+<br>
+<FORM class = "can" METHOD="POST" ACTION="pagina1.php">
+<p >Ingresar ID de usuario: <?php echo $umbral;?> </p>  <input type="text" name="umbral" placeholder=""s>
+<input type="submit" value="Actualizar"> </FORM>
+<br>
+<br>
+<center>
+<table class="top5" border="4" width="50%" bgcolor="#000" >
+<tr>
+	<th id="titulo5">&Uacute;ltimos 5 Puntajes</th>
+</tr>
+<tr>
+	<th id="ultimoscore1"></th>
+</tr>
+<tr>
+	<th id="ultimoscore2"></th>
+</tr>
+<tr>
+	<th id="ultimoscore3"></th>
+</tr>
+<tr>
+	<th id="ultimoscore4"></th>
+</tr>
+<tr>
+	<th id="ultimoscore5"></th>
+</tr>
+</table>
+</center>
+<br>
+<br>
+<button type="button" id="btnmostrar" onclick="mostrar();">Mostrar todos los puntajes</button>
+<button type="button" id="btnocultar" onclick="ocultar();">Ocultar todos los puntajes</button>
+<script type="text/javascript"> 
+    function mostrar()
+    { document.getElementById("allscores").style.visibility="visible";
+      document.getElementById("btnocultar").style.visibility="visible";
+      document.getElementById("btnmostrar").style.visibility="hidden"; }
+</script>
+<script type="text/javascript"> 
+    function ocultar()
+    { document.getElementById("allscores").style.visibility="hidden";
+      document.getElementById("btnocultar").style.visibility="hidden";
+      document.getElementById("btnmostrar").style.visibility="visible"; }
+</script>
+<div id="allscores">
 <?php
 $umbral = $_POST['umbral'];  
 if($umbral == null) $umbral = 7;
@@ -29,8 +107,8 @@ if($umbral == null) $umbral = 7;
 <center>
 <table class="sof" border="4" width="50%" bgcolor="#000" >
 <tr>
-    <th>Usuario ID</th>
-    <th>Puntaje</th>
+    <th id="titulo3">Usuario ID</th>
+    <th id="titulo4">Puntaje</th>
 
 </tr>
 <?php
@@ -65,6 +143,7 @@ $i++;
 
 </table>
 </center>
+</div>
 
 
 </table> 

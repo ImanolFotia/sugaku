@@ -19,6 +19,16 @@
   visibility: hidden;
 }
 
+#allscores
+{
+	visibility: hidden;
+}
+
+#btnocultar
+{
+	visibility: hidden;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -159,4 +169,38 @@ body {
 @font-face {
     font-family: Asian;
     src: url(Asian.ttf);
+}
+
+th {
+    font-weight: normal;
+}
+
+#titulo1
+{
+	font-weight: bold;
+}
+
+#titulo2
+{
+	font-weight: bold;
+}
+
+#titulo3
+{
+	font-weight: bold;
+}
+
+#titulo4
+{
+	font-weight: bold;
+}
+
+#titulo5
+{
+	font-weight: bold;
+}
+
+#titulo6
+{
+	font-weight: bold;
 }

@@ -81,8 +81,8 @@
 				<p>Creado por:</p>
 				<p>- Imanol Fotia</p>
 				<p>- Emiliano A. Viti</p>
-				<p>Soporte a:</p>
-				<p>soporte@sugaku.co</p>
+				<p>Para TFI</p>
+				<p>UAI</p>
 			</div>
 			<!-- Cart -->
 			<div id="Cart">
