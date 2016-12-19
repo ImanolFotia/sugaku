@@ -31,3 +31,5 @@ var plop = new Sound();
 var final = new Sound();
 var coll = false;
 var Puntaje, facebookID, nombre, user; 
+
+var cantIntentos = 1, tiempoInicial, tiempoFinal;

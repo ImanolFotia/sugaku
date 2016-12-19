@@ -7,6 +7,7 @@ function Cart()
 Cart.prototype.Tienda = function()
 {
 	var res = renderer.m_Camara.IrTienda(renderer.m_Inventario.m_CantItems);
+	
 
 	var strspace = "";
 	for(var i = 0; i < 20; i++)
@@ -14,6 +15,8 @@ Cart.prototype.Tienda = function()
 
 	if(res)
 	{
+		var d = new Date();
+    		tiempoInicial  = d.getTime();
 		this.PrecioCorrecto = renderer.m_Inventario.m_CostoTotal;
 
 		for(var i = 0; i < renderer.m_Inventario.getItems().length; i++)
@@ -72,11 +75,12 @@ Cart.prototype.CheckPrecios = function(index)
 {
 	if(index == this.PosicionCorrecta)
 	{	
+		var d = new Date();
+    		tiempoFinal  = d.getTime();
 		menu.Pause();
 		background.Pause();
 		math.Pause();
 		final.Play();
-		document.getElementById("ganaste").innerHTML = "Ganaste!";
 		document.getElementById("ganaste2").innerHTML = "Ingres&aacute; tu nombre:";
 		document.getElementById("ganaste3").innerHTML = "O us&aacute; facebook";
 		document.getElementById("submit").style.visibility = 'visible';		
@@ -86,10 +90,15 @@ Cart.prototype.CheckPrecios = function(index)
 		document.getElementById("precio3").style.visibility = 'hidden';
 		document.getElementById("precio4").style.visibility = 'hidden';
 		getNombreyID();
-		document.getElementById("tagScore").value = 1000;
+		var DeltaTiempo = (tiempoFinal - tiempoInicial)/1000;
+		var puntajefinal = Math.floor((1000/DeltaTiempo)/cantIntentos);
+		document.getElementById("ganaste").innerHTML = "&iexcl;Ganaste! Tu puntaje es: " + puntajefinal ;
+		document.getElementById("tagScore").value = puntajefinal ;
 		document.getElementById("tagAction").value = 1;
 	}
-	else
+	else{
 		document.getElementById("precio" + (index+1)).innerHTML = "Incorrecto";
+		cantIntentos += 1;
+		}
 
 }
