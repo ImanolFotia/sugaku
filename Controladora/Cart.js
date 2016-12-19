@@ -77,8 +77,8 @@ Cart.prototype.CheckPrecios = function(index)
 		math.Pause();
 		final.Play();
 		document.getElementById("ganaste").innerHTML = "Ganaste!";
-		document.getElementById("ganaste2").innerHTML = "Ingresá tu nombre:";
-		document.getElementById("ganaste3").innerHTML = "O usá facebook";
+		document.getElementById("ganaste2").innerHTML = "Ingres&aacute; tu nombre:";
+		document.getElementById("ganaste3").innerHTML = "O us&aacute; facebook";
 		document.getElementById("submit").style.visibility = 'visible';		
 		document.getElementById("submittxt").style.visibility = 'visible';
 		document.getElementById("precio1").style.visibility = 'hidden';

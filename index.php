@@ -70,12 +70,12 @@
 			<button id="menuinstrucciones" type="button" onclick="mostrarInstrucciones();">&#191;C&#243;mo juego?</button>
 			<button id="menuabout" type="button" onclick="mostrarAcerca();">Acerca</button>
 			<div id="Instrucciones">
-				<p>Utilizá las flechas en la pantalla para moverte.</p>
+				<p>Utiliz&aacute; las flechas en la pantalla para moverte.</p>
 				<p>Para tomar un item, ubicate frente a el y miralo con las flechas izquierda/derecha.</p>
-				<p>Presioná la tecla tomar para agarrar un item.</p>
-				<p>Deberás tomar 5 items para poder ir a la caja.</p>
-				<p>Para ir a la caja presioná el carrito.</p>
-				<p>Elegí la respuesta correcta para ganar.</p>
+				<p>Presion&aacute; la tecla tomar para agarrar un item.</p>
+				<p>Deber&aacute;s tomar 5 items para poder ir a la caja.</p>
+				<p>Para ir a la caja presion&aacute; el carrito.</p>
+				<p>Eleg&iacute; la respuesta correcta para ganar.</p>
 			</div>
 			<div id="Acerca">
 				<p>Creado por:</p>
