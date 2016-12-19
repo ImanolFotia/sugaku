@@ -134,10 +134,19 @@ Camara.prototype.Avanzar = function()
 	var b = Math.round(Math.sin(this.m_VectorGiro));
 	var c = Math.round(Math.cos(this.m_VectorGiro));
 
-	this.m_VectorMovimiento[0] = this.m_VectorMovimiento[0] + b * 21.0;
-	this.m_VectorMovimiento[1] = 18;
-	this.m_VectorMovimiento[2] = this.m_VectorMovimiento[2] + c * 21.0;
+	var vx = this.m_VectorMovimiento[0] + b * 21.0;
+	var vz = this.m_VectorMovimiento[2] + c * 21.0;
 
+	if(vx > 130.0|| vx < 7.0|| vz > 87.0|| vz < 0.0)
+	{
+		this.m_VectorMovimiento[1] = 18;
+	}
+	else if(coll == false)
+	{
+		this.m_VectorMovimiento[0] = this.m_VectorMovimiento[0] + b * 21.0;
+		this.m_VectorMovimiento[1] = 18;
+		this.m_VectorMovimiento[2] = this.m_VectorMovimiento[2] + c * 21.0;
+	}
 
 	this.m_Avanza = true;
 
@@ -262,7 +271,7 @@ Camara.prototype.Interpolar = function()
 			}else{*/
 				this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
 				this.m_VectorMovimientoAnterior = this.m_VectorMovimiento;
-            //console.log("m_Posicion: x:" + this.m_Posicion[0] + " y: " + this.m_Posicion[1] + " z: " + this.m_Posicion[2]);
+            console.log("m_Posicion: x:" + this.m_Posicion[0] + " y: " + this.m_Posicion[1] + " z: " + this.m_Posicion[2]);
 			//}
 
 		}
@@ -275,7 +284,7 @@ Camara.prototype.Interpolar = function()
 				this.m_Retrocede = false;
 			}else{*/
 				this.m_Posicion = lerp(this.m_Posicion, this.m_VectorMovimiento, 0.05);
-            //console.log("m_Posicion: x:" + this.m_Posicion[0] + " y: " + this.m_Posicion[1] + " z: " + this.m_Posicion[2]);
+            console.log("m_Posicion: x:" + this.m_Posicion[0] + " y: " + this.m_Posicion[1] + " z: " + this.m_Posicion[2]);
 				//this.m_VectorMovimientoAnterior = this.m_VectorMovimiento;
 			//}
 		}

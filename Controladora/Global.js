@@ -29,5 +29,5 @@ var math = new Sound();
 var menu = new Sound();
 var plop = new Sound();
 var final = new Sound();
-
+var coll = false;
 var Puntaje, facebookID, nombre, user; 

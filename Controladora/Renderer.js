@@ -152,6 +152,8 @@ function Render(now)
 		deltaTime = now - then;
 		then = now;
 
+		renderer.m_Picking.testCollision(renderer.m_Camara.getPosicion(), renderer.m_Camara.getDireccion());
+
 		GL.useProgram(renderer.m_Shader.getshaderID());
 		GL.viewport(0,0,GL.drawingBufferWidth, GL.drawingBufferHeight);
 		GL.clearColor(0.8, 1, .5, 1.0);
