@@ -137,7 +137,7 @@ Camara.prototype.Avanzar = function()
 	var vx = this.m_VectorMovimiento[0] + b * 21.0;
 	var vz = this.m_VectorMovimiento[2] + c * 21.0;
 
-	if(vx > 130.0|| vx < 7.0|| vz > 87.0|| vz < 0.0)
+	if(vx > 130.0|| vx < 30.0|| vz > 87.0|| vz < 0.0)
 	{
 		this.m_VectorMovimiento[1] = 18;
 	}
@@ -146,6 +146,10 @@ Camara.prototype.Avanzar = function()
 		this.m_VectorMovimiento[0] = this.m_VectorMovimiento[0] + b * 21.0;
 		this.m_VectorMovimiento[1] = 18;
 		this.m_VectorMovimiento[2] = this.m_VectorMovimiento[2] + c * 21.0;
+	}
+	else
+	{
+		this.m_VectorMovimiento[1] = 18;	
 	}
 
 	this.m_Avanza = true;
@@ -160,9 +164,23 @@ Camara.prototype.Retroceder = function()
 	var b = Math.round(Math.sin(this.m_VectorGiro));
 	var c = Math.round(Math.cos(this.m_VectorGiro));
 
-	this.m_VectorMovimiento[0] = this.m_VectorMovimiento[0] - b * 21.0;
-	this.m_VectorMovimiento[1] = 18;
-	this.m_VectorMovimiento[2] = this.m_VectorMovimiento[2] - c * 21.0;
+	var vx = this.m_VectorMovimiento[0] - b * 21.0;
+	var vz = this.m_VectorMovimiento[2] - c * 21.0;
+
+	if(vx > 130.0|| vx < 30.0|| vz > 87.0|| vz < 0.0)
+	{
+		this.m_VectorMovimiento[1] = 18;
+	}
+	else if(coll == false)
+	{
+		this.m_VectorMovimiento[0] = this.m_VectorMovimiento[0] - b * 21.0;
+		this.m_VectorMovimiento[1] = 18;
+		this.m_VectorMovimiento[2] = this.m_VectorMovimiento[2] - c * 21.0;
+	}
+	else
+	{
+		this.m_VectorMovimiento[1] = 18;	
+	}
 
 	this.m_Retrocede = true;
 
